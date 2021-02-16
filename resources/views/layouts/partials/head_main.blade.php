@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/sass/common.css">
     <link rel="stylesheet" href="css/sass/main.css">
     {{--    <link rel="stylesheet" href="/test2/example-app/resources/css/">--}}
-    <title> @yield('title') </title>
+        <title> @yield('title') </title>
 
     <meta name="keywords" content="ЧИПКРО, институт, дополнительное образование, курсы, Чечня, кафедра, школа, учителя, форум, фгос, вебинары, семинары, итоги, министерство, Чеченская Республика, ГПРО, повышение квалификации">
     <meta name="description" content="Чеченский институт повышения квалификации работников образования">
