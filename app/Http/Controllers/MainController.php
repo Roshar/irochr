@@ -9,8 +9,11 @@ class MainController extends Controller
 
     public function index()
     {
+        return view('index');
+    }
 
-        return "Frontend";
-//        return view('index2',compact('articles'));
+    public function show()
+    {
+        return view('show');
     }
 }

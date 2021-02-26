@@ -239,6 +239,11 @@
                             </ul>
                         </div>
                     @endif
+                    @if (session()->has('error'))
+                        <div class="alert alert-danger">
+                            {{session('error')}}
+                        </div>
+                    @endif
                     @if (session()->has('success'))
                         <div class="alert alert-success">
                             {{session('success')}}
@@ -268,6 +273,7 @@
 <script src="{{asset('/assets/admin/js/admin.js')}}"></script>
 <script src="{{asset('/assets/admin/ckeditor5/build/ckeditor.js')}}"></script>
 <script src="{{asset('/assets/admin/ckfinder/ckfinder.js')}}"></script>
+<script src="{{asset('/assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 
 <script type="text/javascript">
 
@@ -369,6 +375,10 @@
         .catch( function( error ) {
             console.error( error );
         } );
+
+    $(function () {
+        bsCustomFileInput.init();
+    });
 
 </script>
 </body>

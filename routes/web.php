@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 
 
 Route::get('/', [MainController::class, 'index'])->name('home');
+Route::get('/article', [MainController::class, 'show'])->name('article');
 
 /**
  * Группировка маршрутизаторов админки

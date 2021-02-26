@@ -89,7 +89,10 @@ class PostController extends Controller
 
         $post = Post::find($id);
         $data = $request->all();
-        $data['thumbnail'] = Post::imageUpload($request, $post->thumbnamil);
+        if($file = Post::imageUpload($request, $post->thumbnamil) ){
+            $data['thumbnail'] = $file;
+        }
+
         $post->update($data);
 
         return redirect()->route('posts.index')->with('success','Изменения сохранены');

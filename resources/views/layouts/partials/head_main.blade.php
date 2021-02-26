@@ -6,10 +6,10 @@
     <link rel="shortcut icon" href="img/logo.png" type="image/png">
 
     <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Istok+Web&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/sass/common.css">
-    <link rel="stylesheet" href="css/sass/main.css">
+    <link rel="stylesheet" href="assets/front/css/normalize.css">
+    <link rel="stylesheet" href="assets/front/css/reset.css">
+    <link rel="stylesheet" href="assets/front/css/sass/common.css">
+    <link rel="stylesheet" href="assets/front/css/sass/main.css">
     {{--    <link rel="stylesheet" href="/test2/example-app/resources/css/">--}}
         <title> @yield('title') </title>
 
@@ -23,7 +23,7 @@
     <div class="container container--header">
         <div class="row row--header">
             <div class="logo">
-                <a href="index.html"><img src="img/logo.png" alt="Логотип ЧИПКРО"></a>
+                <a href="index.html"><img src="assets/front/img/logo.png" alt="Логотип ЧИПКРО"></a>
                 <!-- <p class="logo__text">Чеченский институт повышения квалификации работников образования</p> -->
             </div>
             <button type="button" class="menu_btn" id="menu_btn">

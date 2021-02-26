@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="institution">
-            <div class="footer__logo"><img src="img/logo-mono.png" alt=""></div>
+            <div class="footer__logo"><img src="assets/front/img/logo-mono.png" alt=""></div>
             <div class="copyright">
                 <p>&copy; 2020 ГБУ ДПО Чеченский институт повышения квалификации работников образования.</p>
                 <p>Все права защищены. При использовании материалов сайта активная ссылка на сайт https://www.govzalla.ru обязательна.</p>
@@ -40,113 +40,115 @@
     </div>
 </footer>
 
+@if(Request::is('/'))
+    <script >
 
-<script>
+        let slider = document.querySelector('.slider_section__items');
+        let slides = document.querySelectorAll('.slider_section__item');
 
-    let slider = document.querySelector('.slider_section__items');
-    let slides = document.querySelectorAll('.slider_section__item');
+        slider.style.width = slides.length * 100 + '%';
 
-    slider.style.width = slides.length * 100 + '%';
+        let toLeftButton = document.querySelector('.slider_section__controller--left');
+        let toRightButton = document.querySelector('.slider_section__controller--right');
+        let position = 1;
+        let direction;
 
-    let toLeftButton = document.querySelector('.slider_section__controller--left');
-    let toRightButton = document.querySelector('.slider_section__controller--right');
-    let position = 1;
-    let direction;
+        function toRight() {
+            if(direction === 'left'){position++};
+            if(position > slides.length-1){
+                position = 0;
+            }
 
-    function toRight() {
-        if(direction === 'left'){position++};
-        if(position > slides.length-1){
-            position = 0;
+            slider.style.transform = `translateX(-${position*100/slides.length}%)`;
+            position++;
+            direction = 'right';
         }
 
-        slider.style.transform = `translateX(-${position*100/slides.length}%)`;
-        position++;
-        direction = 'right';
-    }
+        function toLeft() {
+            if(direction === 'right'){position--}
+            if(position < 1){
+                position = slides.length;
+            }
 
-    function toLeft() {
-        if(direction === 'right'){position--}
-        if(position < 1){
-            position = slides.length;
+            slider.style.transform = `translateX(-${(position-1)*(100/slides.length)}%`;
+            position--;
+            direction = 'left';
         }
 
-        slider.style.transform = `translateX(-${(position-1)*(100/slides.length)}%`;
-        position--;
-        direction = 'left';
-    }
 
-
-    toRightButton.addEventListener('click', event => {toRight() })
-    document.addEventListener('keyup', event => {
-        if (event.keyCode === 39) {toRight()}
-    });
-
-    toLeftButton.addEventListener('click', event => {toLeft()});
-    document.addEventListener('keyup', event => {
-        if (event.keyCode === 37) {toLeft()}
-    });
-
-    let newsLink = document.querySelector('.mobile_nav__item--news');
-    let eventLink = document.querySelector('.mobile_nav__item--events');
-
-    let news = document.querySelectorAll('.news');
-    let cards = document.querySelector('.cards_section');
-    let events = document.querySelectorAll('.event');
-
-    function hideEvents() {
-        events.forEach(eventsItem => {
-            eventsItem.classList.add('hidden');
-        })
-        news.forEach(newsItem => {
-            newsItem.classList.remove('hidden');
-        })
-        cards.classList.remove('hidden');
-        newsLink.classList.add('mobile_nav__item--active');
-        eventLink.classList.remove('mobile_nav__item--active');
-    }
-
-    function hideNews() {
-        events.forEach(eventsItem => {
-            eventsItem.classList.remove('hidden');
+        toRightButton.addEventListener('click', event => {toRight() })
+        document.addEventListener('keyup', event => {
+            if (event.keyCode === 39) {toRight()}
         });
-        news.forEach(newsItem => {
-            newsItem.classList.add('hidden');
+
+        toLeftButton.addEventListener('click', event => {toLeft()});
+        document.addEventListener('keyup', event => {
+            if (event.keyCode === 37) {toLeft()}
         });
-        cards.classList.add('hidden');
-        newsLink.classList.remove('mobile_nav__item--active');
-        eventLink.classList.add('mobile_nav__item--active');
-    }
 
-    /* hideEvents(); */
+        let newsLink = document.querySelector('.mobile_nav__item--news');
+        let eventLink = document.querySelector('.mobile_nav__item--events');
 
-    /*  window.addEventListener('resize', ()=> {
-         if (window.matchMedia("(min-width: 933px)").matches) {
-             events.forEach(eventsItem => {
-                 if(eventsItem.classList.contains('hidden')){
-                     eventsItem.classList.remove('hidden');
-                 }
-             });
-         }
-     }); */
+        let news = document.querySelectorAll('.news');
+        let cards = document.querySelector('.cards_section');
+        let events = document.querySelectorAll('.event');
 
-    window.addEventListener('resize', ()=> {
-        if (window.matchMedia("(max-width: 933px)").matches) { hideEvents() }
-        else {
+        function hideEvents() {
             events.forEach(eventsItem => {
-                if(eventsItem.classList.contains('hidden')){
-                    eventsItem.classList.remove('hidden');
-                }
-            });
+                eventsItem.classList.add('hidden');
+            })
+            news.forEach(newsItem => {
+                newsItem.classList.remove('hidden');
+            })
+            cards.classList.remove('hidden');
+            newsLink.classList.add('mobile_nav__item--active');
+            eventLink.classList.remove('mobile_nav__item--active');
         }
-    });
 
-    if (window.matchMedia("(max-width: 933px)").matches) { hideEvents() }
+        function hideNews() {
+            events.forEach(eventsItem => {
+                eventsItem.classList.remove('hidden');
+            });
+            news.forEach(newsItem => {
+                newsItem.classList.add('hidden');
+            });
+            cards.classList.add('hidden');
+            newsLink.classList.remove('mobile_nav__item--active');
+            eventLink.classList.add('mobile_nav__item--active');
+        }
+
+        /* hideEvents(); */
+
+        /*  window.addEventListener('resize', ()=> {
+             if (window.matchMedia("(min-width: 933px)").matches) {
+                 events.forEach(eventsItem => {
+                     if(eventsItem.classList.contains('hidden')){
+                         eventsItem.classList.remove('hidden');
+                     }
+                 });
+             }
+         }); */
+
+        window.addEventListener('resize', ()=> {
+            if (window.matchMedia("(max-width: 933px)").matches) { hideEvents() }
+            else {
+                events.forEach(eventsItem => {
+                    if(eventsItem.classList.contains('hidden')){
+                        eventsItem.classList.remove('hidden');
+                    }
+                });
+            }
+        });
+
+        if (window.matchMedia("(max-width: 933px)").matches) { hideEvents() }
 
 
-    newsLink.addEventListener('click', ()=>{ hideEvents() });
-    eventLink.addEventListener('click', ()=>{ hideNews() });
-</script>
+        newsLink.addEventListener('click', ()=>{ hideEvents() });
+        eventLink.addEventListener('click', ()=>{ hideNews() });
+    </script>
+@endif
 
-<script type="text/javascript" src="js/scripts.js"></script>
+
+<script type="text/javascript" src="assets/front/js/scripts.js"></script>
 </body>
 </html>
