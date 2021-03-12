@@ -41,6 +41,42 @@
 </footer>
 
 @if(Request::is('/'))
+    <script>
+
+
+        {
+            let slider = document.querySelector('.slider_section__items');
+            let slides = document.querySelectorAll('.slider_section__item');
+            let prevButton = document.querySelector('.slider_section__controller--left');
+            let nextButton = document.querySelector('.slider_section__controller--right');
+
+            createSlider({
+                             slider: slider,
+                             slides: slides,
+                             prevButton: prevButton,
+                             nextButton: nextButton,
+                             count: 1
+                         });
+        }
+
+
+        {
+            let slider = document.querySelector('.testimonials');
+            let testimonials = document.querySelectorAll('.testimonial');
+            let prevButton = document.querySelector('.testimonials_controller--left');
+            let nextButton = document.querySelector('.testimonials_controller--right');
+
+            createSlider({
+                slider: slider,
+                slides: testimonials,
+                prevButton: prevButton,
+                nextButton: nextButton,
+                count: 3
+            });
+        }
+
+    </script>
+
     <script >
 
         let slider = document.querySelector('.slider_section__items');

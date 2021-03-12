@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/front/img/logo.png" type="image/png">
+    <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/png">
 
     <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Istok+Web&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/front/css/normalize.css">
-    <link rel="stylesheet" href="assets/front/css/reset.css">
-    <link rel="stylesheet" href="assets/front/css/sass/common.css">
-    <link rel="stylesheet" href="assets/front/css/sass/main.css">
-    <link rel="stylesheet" href="assets/front/css/sass/style.css">
+    
+    <link rel="stylesheet" href="{{asset('assets/front/css/normalize.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/front/css/reset.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/front/css/sass/common.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/front/css/sass/main.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/front/css/sass/style.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     {{--    <link rel="stylesheet" href="/test2/example-app/resources/css/">--}}
     <title> @yield('title') </title>
@@ -25,7 +27,7 @@
     <div class="container container--header">
         <div class="row row--header">
             <div class="logo">
-                <a href="../index.html"><img src="assets/front/img/logo.png" alt="Логотип ЧИПКРО"></a>
+                <a href="/"><img src="{{asset('assets/front/img/logo.png')}}" alt="Логотип ЧИПКРО"></a>
                 <!-- <p class="logo__text">Чеченский институт повышения квалификации работников образования</p> -->
             </div>
             <button type="button" class="menu_btn" id="menu_btn">

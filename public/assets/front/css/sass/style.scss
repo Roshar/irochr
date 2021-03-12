@@ -1,4 +1,4 @@
-@import 'variables';
+@import './variables.scss';
 
 
 body{
@@ -27,41 +27,6 @@ main{
         padding: 1.5em 0 2em;
     }
 
-    .scroll_to_top_button{
-        opacity: 1;
-        position: fixed;
-        z-index: 100;
-        bottom: 5em;
-        right: 5em;
-        padding: 1em;
-        width: 50px;
-        height: 50px;
-        background: $blue-m;
-        color: #FFF;
-        border: 1px solid $blue-m;
-        border-radius: 50%;
-        box-shadow: 0px 1px 5px 0 rgba($color: #000, $alpha: .6);
-        cursor: pointer;
-        transition: opacity .3s, transform .3s;
-
-        &:hover, &:active{
-            transform: scale(1.1);
-        }
-
-        &--hidden{
-            opacity: 0;
-        }
-
-        @include md{
-            right: 2.5em;
-        }
-
-        @include mobile{
-            bottom: 3em;
-            right: 2em;
-        }
-    }
-
     h1{
         margin-bottom: 2em;
 
@@ -85,7 +50,7 @@ main{
     }
 
     .news{
-
+    
         width: 85%;
         max-width: 835px;
         margin-right: 6em;
@@ -99,7 +64,7 @@ main{
         @include large{
             margin-right: 4.5em;
         }
-
+        
         &__block{
             @include flex(space-between, center);
             font-family: 'Open Sans', sans-serif;
@@ -201,7 +166,7 @@ main{
         }
 
         .event{
-
+        
         &__block{
             @include flex(space-between, center);
             font-family: 'Open Sans', sans-serif;
@@ -318,7 +283,7 @@ main{
             max-width: 500px;
             height: 280px;
             border: 1px solid $blue-m;
-
+            
             @include md{
                 margin-right: 0;
             }
@@ -348,7 +313,7 @@ main{
         &__heading{
 
             margin-bottom: 1.3em;
-
+            
             &::after{
                 content: '';
                 display: block;
@@ -429,7 +394,7 @@ main{
             a{
                 color: $gold;
                 transition: .3s;
-
+                
                 &:hover, &:active{
                     color: $blue-m;
                 }
@@ -550,14 +515,14 @@ main{
     }
 
     .center{
-
+        
         &_wrapper{
             padding: 3em 4em;
 
             @include mobile{
                 padding: 3em 1em;
             }
-
+        
             &--cmi{
                 background: url(../../img/centers/cito.jpg) no-repeat center/cover;
             }
@@ -579,7 +544,7 @@ main{
             }
 
             &__heading{
-
+            
                 &::after {
                     content: '';
                     display: block;
@@ -656,13 +621,13 @@ main{
                 padding-right: 1.1em;
                 /* display: flex;
                 align-items: flex-start; */
-
+                
                 button{
                     position: absolute;
                     right: 0;
                     cursor: pointer;
                     /* top: .2em; */
-
+                    
                     i{
                         color: $blue-m;
                     }
@@ -712,12 +677,12 @@ main{
                     flex-shrink: 0;
                 }
 
-                line-height: 150%;
-
+                line-height: 150%; 
+    
                 &--blue{
                     color: $blue-m;
                 }
-
+    
                 &--gold{
                     color: $gold;
                 }
@@ -759,7 +724,7 @@ main{
                 overflow: hidden;
             }
         }
-
+        
     }
 }
 
@@ -813,7 +778,7 @@ main{
             font-weight: normal;
         }
     }
-
+    
     p{
         margin-bottom: 1.5em;
 
@@ -830,7 +795,7 @@ main{
         @include flex(flex-start, baseline);
         margin-bottom: .5em;
 
-
+        
         &::before{
             content: '';
             display: block;
@@ -884,7 +849,7 @@ main{
 }
 
 table{
-
+    
     width: 100%;
 
     @include md{
@@ -901,7 +866,7 @@ table{
         &:not(.tr--head){
             &:nth-child(even){
                 background: #DDD;
-            }
+            } 
         }
     }
 
@@ -913,7 +878,7 @@ table{
             display: none;
         } */
     }
-
+    
     td, th{
         padding: .8em;
         /* border: 1px solid #DDD; */
@@ -990,7 +955,7 @@ table{
 }
 
 .more_news_button{
-    width: 225px;
+    width: 260px;
     margin-top: 6em;
     background: none;
     border: none;

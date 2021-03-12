@@ -1,17 +1,17 @@
-@import 'variables';
+@import './variables.scss';
 
 button{
     cursor: pointer;
 }
 
 header{
-    padding: 1.7em 0;
+    padding: 1.7em 0; 
     position: relative;
 
     @include md{padding: 4.7em 0 0;}
 
     .logo{
-
+        
         @include md{
             height: 50px;
             margin-bottom: 1.5em;
@@ -56,7 +56,7 @@ header{
             flex-direction: column;
         }
 
-        &--active {
+        &--active {   
             height: auto;
             max-height: 400px;
             padding: 0.3em 0 0;
@@ -138,7 +138,7 @@ header{
             &__field{
                 position: absolute;
                 width: 600px;
-                display: inline-block;
+                display: inline-block; 
                 border: 1px solid $blue-m;
                 border-radius: 50px;
                 padding: .6em .9em;
@@ -148,7 +148,7 @@ header{
                 font-size: 1.1rem;
                 opacity: 0;
                 z-index: -1;
-                pointer-events: none;
+                pointer-events: none;  
                 color: $blue-m;
 
                 @include md{
@@ -181,7 +181,7 @@ header{
                 color: $blue-m;
             }
         }
-
+        
         &_submenu{
             position: absolute;
             max-height: 0;
@@ -237,7 +237,7 @@ header{
         @include md{
             display: block;
         }
-
+        
         span,
         span::before,
         span::after {
@@ -248,26 +248,26 @@ header{
             height: 2px;
             background-color: $blue-m;
         }
-
+        
         span::before,
         span::after {
             content: '';
             display: block;
             transition: .2s;
         }
-
+        
         span::before {
             transform: translateY(-5px);
         }
-
+        
         span::after {
             transform: translateY(5px);
         }
-
+      
         &--active {
 
             span{height: 0}
-
+                
             span:before {
                 transform: rotate(45deg);
             }
@@ -281,7 +281,6 @@ header{
 .container{
     width: 100%;
     padding: 0 5em;
-    width: 100%;
     max-width: 1640px;
     margin: auto;
 
@@ -325,7 +324,7 @@ header{
         }
 
         &__item{
-
+        
             display: inline-block;
             &:not(:last-child){
                 &::after{
@@ -343,6 +342,7 @@ header{
 
     @include md{
         padding-top: 0;
+        align-items: center;
     }
 
     &--ne{
@@ -470,19 +470,19 @@ aside{
             }
         }
     }
-
+    
     .sidebar{
         overflow: hidden;
 
         &_menu{
             /* padding: 1em .5em; */
-
+    
             &__item{
                 font-size: 1.2rem;
                 font-weight: 700;
                 margin-bottom: .8em;
             }
-
+    
             &::after{
                 content: '';
                 display: block;
@@ -491,11 +491,11 @@ aside{
                 background: $gold;
                 margin-top: 1em;
             }
-
+    
             a, button{
                 color: $grey;
                 transition: .2s;
-
+    
                 &:hover, &:active{
                     color: $gold;
                 }
@@ -511,7 +511,7 @@ aside{
                 overflow: hidden;
             }
         }
-
+    
         &_submenu{
             font-size: 1rem;
             font-weight: normal;
@@ -523,12 +523,12 @@ aside{
                 max-height: 650px;
                 padding: 1em .5em 0;
             }
-
+    
             &__item{
                 margin-bottom: .8em;
                 font-size: .95rem;
             }
-        }
+        } 
     }
 }
 
@@ -561,7 +561,7 @@ aside{
         width: 30%;
 
         i{
-            margin-right: .4em;
+            margin-right: .4em; 
             font-size: 1.2rem;
             vertical-align: middle;
         }
@@ -610,7 +610,7 @@ aside{
                 color: #CCC;
             }
         }
-
+        
         i{
             font-size: 1.7rem;
         }
@@ -629,13 +629,13 @@ aside{
         margin: 5em auto 0;
         width: 75%;
         border-top: 1px solid #C4C4C4;
-        padding: 2em 4em;
+        padding: 2em 4em;  
         @include flex(space-between, center);
 
         @include large{
             width: 90%;
         }
-
+        
         @include md{
             flex-direction: column;
             padding: 1.5em;
@@ -643,7 +643,7 @@ aside{
             margin: 1.5em auto 0;
         }
 
-        @include mobile{
+        @include mobile{ 
             padding: .5em
         }
     }
@@ -651,7 +651,7 @@ aside{
     &__logo {
 
         margin-right: 4em;
-
+    
         img{
             height: 100px;
         }
@@ -662,4 +662,37 @@ aside{
     }
 }
 
+.scroll_to_top_button{
+    opacity: 1;
+    position: fixed;
+    z-index: 100;
+    bottom: 5em;
+    right: 5em;
+    padding: 1em;
+    width: 50px;
+    height: 50px;
+    background: $blue-m;
+    color: #FFF;
+    border: 1px solid $blue-m;
+    border-radius: 50%;
+    box-shadow: 0px 1px 5px 0 rgba($color: #000, $alpha: .6);
+    cursor: pointer;
+    transition: opacity .3s, transform .3s;
 
+    &:hover, &:active{
+        transform: scale(1.1);
+    }
+
+    &--hidden{
+        opacity: 0;
+    }
+
+    @include md{
+        right: 2.5em;
+    }
+
+    @include mobile{
+        bottom: 3em;
+        right: 2em;
+    }
+}

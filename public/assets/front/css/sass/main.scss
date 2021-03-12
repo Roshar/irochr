@@ -1,7 +1,7 @@
 /* font-family: 'Alegreya', serif;
 font-family: 'Istok Web', sans-serif;
 font-family: 'Open Sans', sans-serif; */
-@import 'variables';
+@import './variables.scss';
 
 
 body{
@@ -17,6 +17,12 @@ body{
     display: none;
 }
 
+@include mobile{
+    .hide-m{
+        display: none !important;
+    }
+}
+
 main{
     color: $grey;
     padding-bottom: 4em;
@@ -27,7 +33,7 @@ main{
 
     a{
         color: $grey;
-
+    
         &:hover, &:active{
             color: $blue-m;
         }
@@ -38,14 +44,12 @@ main{
         position: relative;
         max-height: 850px;
         overflow: hidden;
-        margin-bottom: 1.5em;
 
         &__items{
             width: 100%;
             overflow: hidden;
             position: relative;
             @include flex(space-around, center);
-            /* flex: 1 0 100%; */
             transition: 1s;
         }
 
@@ -54,13 +58,7 @@ main{
             top: 0;
             right: 0;
             width: 100%;
-            /* transform: translateX(-100%); */
-            transition: 3s ;
             float: left;
-
-            /* &--active{
-                flex: 1 0 100%;
-            } */
         }
 
         &__image{
@@ -157,79 +155,51 @@ main{
         }
     }
 
+    .container--colored{
+        background: rgba(236, 236, 236, 0.746);
+        max-width: 100%;
+    }
+
     .container{
-        padding: 3em 6em;
-
-        &:first-of-type{
-            padding-top: 5em;
-        }
-
-        @include large{
-            padding: 0 3em;
-        }
+        padding: 4em 5em;
 
         @include md{
-            &:first-of-type{
-                padding-top: 0;
-            }
+            padding: 3em 3.5em;
         }
-
+    
         @include mobile{
-            padding: 0 1.5em;
+            padding: 1.5em 2em;
         }
-
+    
         &--header{
             @include md{
                 padding: 0;
             }
         }
-
+    
         &--with_aside{
             padding-top: 3em;
         }
     }
 
     h2{
-        margin-bottom: 1.8em;
-        font-size: 1.9rem;
+        margin-bottom: 1.6em;
+        font-size: 2rem;
+        text-align: center;
+        color: $blue-m;
 
-        @include md{
-            display: none;
+        @include mobile{
+            margin-bottom: .7em;
         }
     }
 
-    .mobile_nav{
-        display: none;
-        width: 100%;
-        margin: 3em auto;
-        font-size: 1.2rem;
-        padding-bottom: .7em;
-        border-bottom: 3px solid $blue-m;
-
-        @include md{
-            display: block;
-            position: relative;
-            margin: 2em auto;
-        }
-
-        &__item{
-            display: inline-block;
-
-            &:first-child{
-                margin-right: 1em;
-            }
-
-            &--active{
-
-                a{
-                    color: $gold;
-                }
-            }
-        }
+    h3.bigger{
+        margin-bottom: 1.3em;
+        font-size: 1.6rem;
     }
 
     .news{
-
+    
         width: 85%;
         max-width: 835px;
         margin-right: 6em;
@@ -242,13 +212,14 @@ main{
         @include md{
             width: 100%;
             /* margin-top: 2em; */
+            margin: 0;
             margin-bottom: 3em;
         }
 
         @include mobile{
             margin-bottom: 2em;
         }
-
+        
         &__block{
             @include flex(space-between, center);
             font-family: 'Open Sans', sans-serif;
@@ -267,7 +238,7 @@ main{
         &__image{
             display: block;
             width: 50%;
-            height: 330px;
+            height: 330px; 
             box-shadow: 2px 3px 7px 0 rgba($color: #000, $alpha: .4),
                         -35px 32px 0px rgba($color: #4D59A0, $alpha: .5);
             margin-right: 2em;
@@ -303,11 +274,6 @@ main{
 
         &__text{
             font-family: 'Alegreya', serif;
-
-           /*  @media (max-width: 1151px){
-                display: none;
-            } */
-
         }
 
         &__details{
@@ -320,6 +286,10 @@ main{
             &:hover, &:active{
                 color: $gold
             }
+
+            @include mobile{
+                margin: .6em 0;
+            }
         }
 
         &__date{
@@ -329,7 +299,7 @@ main{
     }
 
     .event{
-
+        
         @include large{
             width: 37%;
         }
@@ -344,7 +314,7 @@ main{
             position: relative;
 
             @include md{
-                width: 70%;
+                width: 100%;
                 margin: auto;
                 margin-bottom:4em;
             }
@@ -381,7 +351,7 @@ main{
             @include md{
                 max-height: 300px;
             }
-
+           
         }
 
         &__heading{
@@ -419,10 +389,14 @@ main{
         }
     }
 
+    .cards_section{
+        margin-bottom: 2em;
+    }
+
     .cards{
         @include flex(space-between, flex-start);
         max-width: 1640px;
-        margin: 5em auto 4em;
+        margin: auto;
 
         @include md{
             margin: 1em auto 2em;
@@ -436,8 +410,8 @@ main{
         .card{
             width: 30%;
             min-height: 580px;
-            border: 2px solid $gold;
-            text-align: center;
+            border: 2px solid $gold;   
+            text-align: center; 
             margin: auto;
             position: relative;
             border-radius: 5px;
@@ -450,7 +424,7 @@ main{
             @include mobile{
                 width: 100%;
                 margin: 0 auto 2em;
-                min-height: 526px;
+               /*  min-height: 526px; */
 
                 &:last-child{
                     margin-bottom: .5em;
@@ -462,9 +436,9 @@ main{
                 overflow: hidden;
 
                 img{
-                    width: 100%;
+                    width: 100%; 
                     object-fit: cover;
-                }
+                }   
             }
 
             &__info{
@@ -517,6 +491,10 @@ main{
                     padding: .6em;
                 }
 
+                @include mobile{
+                    position: static;
+                }
+
                 &:hover, &:active{
                     /* background: #FFF;
                     border: 1px solid $blue-m;
@@ -527,12 +505,303 @@ main{
             }
         }
     }
+
+    .documents_section .row{
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .documents{
+        width: 100%;
+    }
+
+    .document{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 1.8em;
+        background: #FFF;
+        color: $blue-m;
+        width: calc(100%/3);
+        height: 120px;
+        border: .2px solid #FFF;
+        transition: .3s;
+
+        &:hover{
+            border: .2px solid $lightgrey;
+            border-bottom-width: 7px;
+            transform: translateY(-.4em);
+
+            i{
+                color: $gold;
+            }
+        }
+
+        @media screen and (max-width: 1115px){
+            width: calc(100%/2);
+        }
+
+        @include md{
+            font-size: .9rem;
+            padding: 1em;
+        }
+
+        @include mobile{
+            justify-content: start;
+            width: 100%;
+            padding: .7em .3em;
+        }
+
+        i{
+            display: block;
+            font-size: 4rem;
+            margin-right: .7em;
+            transition: .3s;
+        }
+
+        &_title{
+            color: $grey;
+        }
+    }
+
+    .videos{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1em;
+
+        @include mobile{
+            flex-direction: column;
+        }
+    }
+
+    .video{
+        width: 32%;
+
+        @include md{
+            width: 45%;
+        }
+
+        @include mobile{
+            width: 100%;
+        }
+    }
+
+    .links{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        align-items: center;
+        justify-content: space-around;
+
+        @include mobile{
+            flex-direction: column;
+        }
+
+        &__link{
+            width: 19%;
+            
+            @include md{
+                width: 40%;
+            }
+
+            @include mobile{
+                width: 60%;
+            }
+
+            img{
+                width: 100%;
+                height: 100%;
+                transition: .3s;
+                opacity: .3;
+
+                &:hover{
+                    opacity: 1;
+                }
+            }
+            
+        }
+    }
+
+    .products{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 1.5em;
+
+        /* @include mobile{
+            flex-direction: column;
+        } */
+    }
+
+    .product{
+        width: 18%;
+        text-align: center;
+        margin-bottom: 1.5em;
+
+        @include md{
+            width: 23%;
+        }
+
+        @include mobile{
+            width: 40%;
+        }
+
+        img{
+            width: 80%;
+            margin-bottom: 1.5em;
+
+            @include md{
+                width: 100%;
+                margin-bottom: .5em;
+            }
+        }
+
+        p{
+            font-size: 1.3rem;
+        }
+    }
+
+    .testimonials_section{
+        border: 5px solid rgba($color: $gold, $alpha: .5);
+        border-right: none;
+        border-left: none;
+        overflow: hidden;
+    }
+
+    .testimonials_wrapper{
+        overflow: hidden;
+    }
+
+    .testimonials{
+        overflow: hidden;
+        position: relative;
+        transition: 1s;
+        display: flex;
+
+        &_controllers{
+            position: relative;
+            right: -80%;
+            top: -5.7em;
+            width: 100px;
+
+            @include mobile{
+                top: -3.8em
+            }
+        }
+
+        &_controller{
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            padding: .45em;
+            border: 2px solid $blue-m;
+            color: $blue-m;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: .3s;
+            background: transparent;
+
+            &:hover, &:active{
+                background: $blue-m;
+                opacity: 1;
+
+                i{
+                    color: #FFF;
+                }
+            }
+
+            i{
+                transition: .3s;
+            }
+        }
+    }
+
+    .testimonial{
+        position: relative;
+        top: 0;
+        right: 0;
+        width: calc(11% - 4em);
+        margin: 0 2em;
+        transition: .4s;
+
+       /*  @include md{
+            width: calc(300%/2 - 4em);
+        }
+
+        @include mobile{ 
+            width: calc(100%/3 - 4em) !important;
+        } */
+
+        &__name{
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: $grey;
+            margin-bottom: .5em;
+        }
+
+        &__org{
+            margin-bottom: 1.1em;
+            color: $gold;
+        }
+
+        &__text{
+            color: $grey;
+            line-height: 130%;
+            text-align: justify;
+        }
+    }
+
+    .partners{
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .partner {
+
+        display: block;
+        width: 20%;
+        height: auto;
+        /* padding: 0 2em; */
+        text-align: center;
+        margin-bottom: 1em;
+
+        @include md{
+            width: 30%;
+        }
+
+        @include mobile{
+            width: 40%;
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+
+        img{
+            width: 80%;
+            max-width: 150px;
+            opacity: .3;
+            transition: .3s;
+
+            &:hover{
+                opacity: 1;
+            }
+
+        }
+    }
+
 }
 
-.all_news_link{
+.to_all_link{
     display: block;
     margin: auto;
-    width: 115px;
+    margin-top: 2em;
+    width: 160px;
     color: $blue-m;
     font-weight: bold;
     font-size: 1.1rem;
@@ -545,7 +814,7 @@ main{
         width: 70px;
         height: 2px;
         background: $blue-m;
-        margin: .4em auto 3em;
+        margin: .5em auto;
         transition: .3s;
     }
 
@@ -555,7 +824,7 @@ main{
         }
     }
 
-    @include md{
+    /* @include md{
         margin-bottom: 4em;
-    }
+    } */
 }
