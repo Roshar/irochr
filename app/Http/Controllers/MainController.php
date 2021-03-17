@@ -9,10 +9,7 @@ class MainController extends Controller
 
     public function index()
     {
-        $posts = Post::with('category')->orderBy('id', 'desc')->paginate(2);
-        var_dump($posts);
-        exit;
-  
+        $posts = Post::with('category')->orderBy('id', 'desc')->paginate(2);  
         return view('index', compact('posts'));
     }
 
