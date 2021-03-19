@@ -67,7 +67,7 @@
             </div>
             @endforeach
         </div>
-       
+       <!-- {{$posts->links()}}  -->
         <a href="{{ route('category', ['slug' => $post->category->slug])}}" class="to_all_link">Все новости</a>
     </section>
     <div class="container documents_section">

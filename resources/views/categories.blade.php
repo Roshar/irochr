@@ -3,6 +3,25 @@
 @section('title','sdssd')
 
 @section('content')
+<style>
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
 
 <div class="container container--with_aside">
     <nav class="breadcrumbs_nav">
@@ -29,8 +48,14 @@
                 </div>
             @endforeach
             </div>
-           
-                <button class="more_news_button" id="add_more">Загрузить ещё новости</button>
+                <!-- <div class="pagination">
+                    <a href="#">&laquo;</a>
+                    <a href="#">{{$posts->render("pagination::default")}} </a>
+                    <a href="#">&raquo;</a>
+                </div> -->
+                {{ $posts->links("pagination::default") }}
+            <!-- {{$posts->render("pagination::default")}}  -->
+                <button class="more_news_button" id="add_more"></button>
         </div>
         <button class="scroll_to_top_button--hidden"><i class="fas fa-chevron-up"></i></button>
         </main>  
