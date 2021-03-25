@@ -53,7 +53,7 @@
                     <a href="#">{{$posts->render("pagination::default")}} </a>
                     <a href="#">&raquo;</a>
                 </div> -->
-                {{ $posts->links("pagination::default") }}
+                {{ $posts->links("default") }}
             <!-- {{$posts->render("pagination::default")}}  -->
                 <button class="more_news_button" id="add_more"></button>
         </div>
