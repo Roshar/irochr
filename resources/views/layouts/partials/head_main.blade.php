@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/png">
-
     <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Istok+Web&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/front/css/normalize.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/css/reset.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/css/sass/common.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/css/sass/main.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/css/sass/style.css')}}">
-    
+
+
     {{--    <link rel="stylesheet" href="/test2/example-app/resources/css/">--}}
         <title> @yield('title') </title>
 
@@ -19,6 +19,19 @@
     <meta name="description" content="Чеченский институт повышения квалификации работников образования">
 
     <script src="https://kit.fontawesome.com/1f3a4be6e9.js" crossorigin="anonymous"></script>
+    <style>
+        header .main_nav {
+
+            font-size: 1.3em;
+            width: 70%;
+            padding: 2em;
+            text-align: right;
+            position: relative;
+            border-bottom: 5px solid red;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+    </style>
 </head>
 <body>
 <header>

@@ -43,41 +43,56 @@
 
 <script type="text/javascript" src="{{asset('assets/front/js/slider.js')}}"></script>
 @if(Request::is('/'))
-<script>
+    <script>
 
-{
-    let slider = document.querySelector('.slider_section__items');
-    let slides = document.querySelectorAll('.slider_section__item');
-    let prevButton = document.querySelector('.slider_section__controller--left');
-    let nextButton = document.querySelector('.slider_section__controller--right');
+        {
+            let slider = document.querySelector('.slider_section__items');
+            let slides = document.querySelectorAll('.slider_section__item');
+            let prevButton = document.querySelector('.slider_section__controller--left');
+            let nextButton = document.querySelector('.slider_section__controller--right');
 
-    createSlider({
-        slider: slider,
-        slides: slides,
-        prevButton: prevButton,
-        nextButton: nextButton,
-        slidesNumberPerPage: 1
-    });
-}
-    
+            createSlider({
+                slider: slider,
+                slides: slides,
+                prevButton: prevButton,
+                nextButton: nextButton,
+                slidesNumberPerPage: 1
+            });
+        }
 
-{
-    let slider = document.querySelector('.testimonials');
-    let testimonials = document.querySelectorAll('.testimonial');
-    let prevButton = document.querySelector('.testimonials_controller--left');
-    let nextButton = document.querySelector('.testimonials_controller--right');
 
-    createSlider({
-        slider: slider,
-        slides: testimonials,
-        prevButton: prevButton,
-        nextButton: nextButton,
-        slidesNumberPerPage: 3,
-        margin: '4em'
-    });
-}
-   
-</script>
+        {
+            let slider = document.querySelector('.testimonials');
+            let testimonials = document.querySelectorAll('.testimonial');
+            let prevButton = document.querySelector('.testimonials_controller--left');
+            let nextButton = document.querySelector('.testimonials_controller--right');
+
+            createSlider({
+                slider: slider,
+                slides: testimonials,
+                prevButton: prevButton,
+                nextButton: nextButton,
+                slidesNumberPerPage: 3,
+                margin: '4em'
+            });
+        }
+
+
+        let cshButtons = document.querySelectorAll('button.csh');
+        let cards = document.querySelectorAll('.cards');
+        let toAllLinks = document.querySelectorAll('.cards_section .to_all_link');
+
+        cshButtons.forEach(item => {
+            item.addEventListener('click', event => {
+                if(event.target.classList.contains('csh--disable')){
+                    cshButtons.forEach(item => item.classList.toggle('csh--disable'));
+                    cards.forEach(item => {item.classList.toggle('cards--disable')})
+                    toAllLinks.forEach(item => item.classList.toggle('to_all_link--disable'));
+                }
+            });
+        });
+
+    </script>
 @endif
 
 

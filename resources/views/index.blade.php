@@ -27,49 +27,64 @@
     <div class="container">
         <div class="row row--ne">
             <div class="news">
-                <h3 class="bigger">Актуальная новость</h2>
+                <h3 class="bigger">Главная новость</h3>
+                @foreach($mainArticle as $article)
                     <div class="news__block">
-                        <img src="assets/front/img/1.png" alt="" class="news__image">
+                        <img src="{{$article->getImage()}}" alt="" class="news__image">
                         <div class="news__info">
-                            <h3 class="news__heading"><a href="#">Специалисты ЧИПКРО приняли участие в&nbsp;презентации сборника "Литературно-географический атлас Чеченской Республики"</a></h3>
-                            <p class="news__text">состоявшейся в&nbsp;актовом зале Национальной библиотеки ЧР им.&nbsp;А.Айдамирова 10 января 2019 года.</p>
-                            <a href="templates/post.html" class="news__details">подробнее</a>
-                            <p class="news__date">11.01.2019</p>
+                            <h3 class="news__heading"><a href="#">{{$article->title}}</a></h3>
+                            <p class="news__text">{!! $article->description !!}</p>
+                            <a href="{{route('article',['slug' => $article->slug])}}" class="news__details">подробнее</a>
+                            <p class="news__date">{{$article->getPostDate()}}</p>
                         </div>
                     </div>
+                @endforeach
             </div>
-            <div class="event">
-                <h3 class="bigger">Актуальное мероприятие</h3>
-                <div class="event__block">
-                    <div class="event__image_block"><img src="assets/front/img/2.png" alt="" class="event__image"></div>
-                    <h3 class="event__heading"><a class="#">Ежегодный конкурс «Лучший учитель чеченского языка»</a></h3>
-                    <a href="" class="event__all">Все мероприятия</a>
+            <div class="actual_video">
+                <h3 class="bigger">Актуальное видео</h3>
+                <div class="actual_video__block">
+                    <div class="actual_video__recording">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xL4iSKXjfU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h3 class="actual_video__heading"><a class="https://youtu.be/xL4iSKXjfU0">Методические рекомендации по организации электронного и дистанционного обучения</a></h3>
+                    <a href="templates/webinars.html" class="actual_video__all">Все видео</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <section class="cards_section">
-
-        <h2>Новости</h2>
-      
-        <div class="cards">
-        @foreach($posts as $post)
-            <div class="card">
-                <div class="card__image_block">
-                    <img src="{{$post->getImage()}}" alt="" class="card__image">
+        <section class="cards_section">
+            <h2><button class="csh">Новости</button> | <button class="csh csh--disable">Анонсы</button></h2>
+            <div class="cards" data-name="news">
+                @foreach($posts as $post)
+                <div class="card">
+                    <div class="card__image_block">
+                        <img src="{{$post->getImage()}}" alt="" class="card__image">
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__heading"><a href="{{route('article',['slug' => $post->slug])}}">{{$post->title}}</a></h3>
+                        <p class="card__date">{{$post->getPostDate()}}</p>
+                        <a href="{{route('article',['slug' => $post->slug])}}" class="card__details">Читать</a>
+                    </div>
                 </div>
-                <div class="card__info">
-                    <h3 class="card__heading"><a href="{{ route('article', ['slug' =>$post->slug]) }}"> {{$post->title}}</a></h3>
-                    <p class="card__date">{{$post->getPostDate()}}</p>
-                    <a href="{{ route('article', ['slug' =>$post->slug]) }}" class="card__details">Читать</a>
-                </div>
+                @endforeach
             </div>
-            @endforeach
-        </div>
-       <!-- {{$posts->links()}}  -->
-        <a href="{{ route('category', ['slug' => $post->category->slug])}}" class="to_all_link">Все новости</a>
-    </section>
+            <div class="cards cards--disable" data-name="announcements">
+                @foreach($announces as $announce)
+                    <div class="card">
+                        <div class="card__image_block">
+                            <img src="{{$announce->getImage()}}" alt="" class="card__image">
+                        </div>
+                        <div class="card__info">
+                            <h3 class="card__heading"><a href="{{route('article',['slug' => $announce->slug])}}">{{$announce->title}}</a></h3>
+                            <p class="card__date">{{$announce->getPostDate()}}</p>
+                            <a href="{{route('article',['slug' => $announce->slug])}}" class="card__details">Читать</a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <a href="{{ route('category', ['slug' => $post->category->slug])}}" class="to_all_link">Все новости</a>
+            <a href="{{ route('category', ['slug' => $announce->category->slug])}}" class="to_all_link to_all_link--disable">Все анонсы</a>
+        </section>
     <div class="container documents_section">
         <h2>Нормативные документы</h2>
         <div class="row documents">

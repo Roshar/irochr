@@ -42,13 +42,13 @@ header .logo img {
 }
 
 header .main_nav {
+
   font-size: 1.3em;
   width: 70%;
   padding: 2em;
   text-align: right;
   position: relative;
-  /* border-bottom: 4px solid rgba($color: $blue-m, $alpha: .8); */
-  border-bottom: 4px solid #285299;
+  border-bottom: 5px solid #285299;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -652,12 +652,10 @@ aside .sidebar_submenu__item {
 }
 
 .footer__block--links a {
-  color: #FFF;
   display: block;
   margin-bottom: 1em;
   -webkit-transition: .4s;
   transition: .4s;
-  /* text-decoration: underline; */
 }
 
 .footer__block--links a:first-of-type {
@@ -667,6 +665,10 @@ aside .sidebar_submenu__item {
 
 .footer__block--links a:hover, .footer__block--links a:active {
   text-decoration: underline;
+}
+
+.footer__block a, .footer__block a:hover, .footer__block a:active {
+  color: #FFF;
 }
 
 .footer__heading {

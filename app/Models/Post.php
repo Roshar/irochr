@@ -73,6 +73,8 @@ class Post extends Model
         $this->created_at)->format('d.m.Y');
     }
 
-    
+
+
+
 
 }

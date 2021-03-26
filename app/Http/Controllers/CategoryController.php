@@ -19,6 +19,6 @@ class CategoryController extends Controller
     //     if($request->ajax()){
     //         return "dd0";
     //     }
-      
+
     // }
 }

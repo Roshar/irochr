@@ -9,7 +9,7 @@ use App\Http\Controllers\Akkino\PostController;
 use App\Http\Controllers\UserController;
 
 /**
- * ГМаршруты для клиентской части 
+ * Маршруты для клиентской части
  */
 
 Route::get('/', [MainController::class, 'index'])->name('home');
@@ -19,7 +19,7 @@ Route::post('/category', [FrontCategoryController::class, 'load_more'])->name('l
 
 
 /**
- * Группа маршрутов для админпанели 
+ * Группа маршрутов для админпанели
  */
 
 Route::group(['prefix' => 'akkino','middleware' => 'admin'], function(){
@@ -29,7 +29,7 @@ Route::group(['prefix' => 'akkino','middleware' => 'admin'], function(){
 });
 
 /**
- * группа маршрутов для авторизации и аутентификации 
+ * группа маршрутов для авторизации и аутентификации
  */
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [UserController::class,'create'])->name('register.create');
