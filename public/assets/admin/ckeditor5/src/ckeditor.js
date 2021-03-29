@@ -41,6 +41,9 @@ import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat.js'
 import Table from '@ckeditor/ckeditor5-table/src/table.js';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
+import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
+import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
+
 
 class Editor extends ClassicEditor {}
 
@@ -83,7 +86,9 @@ Editor.builtinPlugins = [
 	RemoveFormat,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+    CodeBlock,
+    HtmlEmbed,
 ];
 
 export default Editor;

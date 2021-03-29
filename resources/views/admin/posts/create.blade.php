@@ -48,10 +48,10 @@
                                     <div class="form-group">
                                         <label>Категория</label>
                                         <select name="category_id" id="category_id" class="custom-select">
-                                            <option value=""> без категорий </option>
+{{--                                            <option value="2"> без категорий </option>--}}
                                         @if(count($categories))
                                                 @foreach($categories as $k => $cat)
-                                                    <option value="{{$k}}"> {{$cat}} </option>
+                                                    <option value="{{$k}}"   @if ($k == 2)selected @endif> {{$cat}} </option>
                                                 @endforeach
                                         @endif
                                         </select>

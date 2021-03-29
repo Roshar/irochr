@@ -42,13 +42,23 @@
             </div>
             <div class="actual_video">
                 <h3 class="bigger">Актуальное видео</h3>
+
+                @foreach($mainMovie as $movie)
                 <div class="actual_video__block">
                     <div class="actual_video__recording">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xL4iSKXjfU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="100%" src="{{$movie->content}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <h3 class="actual_video__heading"><a class="https://youtu.be/xL4iSKXjfU0">Методические рекомендации по организации электронного и дистанционного обучения</a></h3>
+
+{{--                    {!! $movie->content !!}--}}
+
+                    <h3 class="actual_video__heading">
+                        <a class="">
+                            {{$movie->title}}
+                        </a>
+                    </h3>
                     <a href="templates/webinars.html" class="actual_video__all">Все видео</a>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

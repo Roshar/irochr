@@ -52,7 +52,7 @@
                             @foreach($posts as $post)
                             <tr>
                                 <td> {{$post->id}}</td>
-                                <td>{{$post->title}}</td>
+                                <td><a href="{{route('posts.edit', ['post' => $post->id])}}">{{$post->title}}</a></td>
                                 @if(is_object($post->category))
                                     <td>{{$post->category->title}}</td>
                                 @else

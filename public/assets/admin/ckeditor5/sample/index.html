@@ -104,7 +104,7 @@
 	<script src="../build/ckeditor.js"></script>
 	<script>ClassicEditor
 			.create( document.querySelector( '.editor' ), {
-				
+
 				toolbar: {
 					items: [
 						'heading',
@@ -131,16 +131,18 @@
 						'CKFinder',
 						'exportPdf',
 						'exportWord',
-						'removeFormat'
+						'removeFormat',
+                        'codeBlock',
 					]
 				},
 				language: 'ru',
 				image: {
 					toolbar: [
-						'imageTextAlternative',
-						'imageStyle:full',
-						'imageStyle:side',
-						'linkImage'
+                        'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
+                        '|',
+                        'resizeImage',
+                        '|',
+                        'imageTextAlternative'
 					]
 				},
 				table: {
@@ -151,18 +153,12 @@
 					]
 				},
 				licenseKey: '',
-				
+
 			} )
 			.then( editor => {
 				window.editor = editor;
-		
-				
-				
-				
-		
-				
-				
-				
+
+
 			} )
 			.catch( error => {
 				console.error( 'Oops, something went wrong!' );

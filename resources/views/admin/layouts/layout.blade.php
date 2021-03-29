@@ -13,6 +13,24 @@
             min-height: 300px;
         }
     </style>
+    <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
+    <script>
+        document.querySelectorAll( 'div[data-oembed-url]' ).forEach( element => {
+            // Discard the static media preview from the database (empty the <div data-oembed-url="...">).
+            while ( element.firstChild ) {
+                element.removeChild( element.firstChild );
+            }
+
+            // Create the <a href="..." class="embedly-card"></a> element that Embedly uses
+            // to discover the media.
+            const anchor = document.createElement( 'a' );
+
+            anchor.setAttribute( 'href', element.dataset.oembedUrl );
+            anchor.className = 'embedly-card';
+
+            element.appendChild( anchor );
+        } );
+    </script>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -276,13 +294,19 @@
 <script src="{{asset('/assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 
 <script type="text/javascript">
-
+    // import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
     ClassicEditor
         .create( document.querySelector( '#content' ), {
             ckfinder: {
                 uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
             },
-
+            // plugins:[CodeBlock],
+            codeBlock: {
+                languages: [
+                    { language: 'css', label: 'CSS' },
+                    { language: 'html', label: 'HTML' }
+                ]
+            },
             image: {
                 // Configure the available styles.
                 styles: [
@@ -344,18 +368,12 @@
                     'CKFinder',
                     'exportPdf',
                     'exportWord',
-                    'removeFormat'
+                    'removeFormat',
+                    'codeBlock',
+                    'htmlEmbed'
                 ]
             },
             language: 'ru',
-            image: {
-                toolbar: [
-                    'imageTextAlternative',
-                    'imageStyle:full',
-                    'imageStyle:side',
-                    'linkImage'
-                ]
-            },
             table: {
                 contentToolbar: [
                     'tableColumn',

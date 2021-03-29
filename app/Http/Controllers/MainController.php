@@ -20,11 +20,12 @@ class MainController extends Controller
        $announces = Post::with('category')->where('category_id','5')->get();
 
        //Актуальное видео
-        $mainMovie = '';
-        var_dump($mainMovie);
-        exit;
+       $mainMovie = Post::where('category_id', '7')->get();
 
-        return view('index', compact('posts','mainArticle','announces'));
+//       var_dump($mainMovie);
+//       exit;
+
+       return view('index', compact('posts','mainArticle','announces','mainMovie'));
     }
 
     public function show($slug)
