@@ -13,24 +13,8 @@
             min-height: 300px;
         }
     </style>
-    <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
-    <script>
-        document.querySelectorAll( 'div[data-oembed-url]' ).forEach( element => {
-            // Discard the static media preview from the database (empty the <div data-oembed-url="...">).
-            while ( element.firstChild ) {
-                element.removeChild( element.firstChild );
-            }
+    <script src="https://cdn.tiny.cloud/1/burwiq9dtt2q2ssg5wbuezb6buu3s871ixqputu5ynlliw6a/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-            // Create the <a href="..." class="embedly-card"></a> element that Embedly uses
-            // to discover the media.
-            const anchor = document.createElement( 'a' );
-
-            anchor.setAttribute( 'href', element.dataset.oembedUrl );
-            anchor.className = 'embedly-card';
-
-            element.appendChild( anchor );
-        } );
-    </script>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -289,115 +273,80 @@
     <!-- /.control-sidebar -->
 </div>
 <script src="{{asset('/assets/admin/js/admin.js')}}"></script>
-<script src="{{asset('/assets/admin/ckeditor5/build/ckeditor.js')}}"></script>
-<script src="{{asset('/assets/admin/ckfinder/ckfinder.js')}}"></script>
 <script src="{{asset('/assets/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+<script>
+    var editor_config = {
+        path_absolute : "/",
+        selector: '#description',
+        height:200,
+        relative_urls: false,
 
-<script type="text/javascript">
-    // import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
-    ClassicEditor
-        .create( document.querySelector( '#content' ), {
-            ckfinder: {
-                uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-            },
-            // plugins:[CodeBlock],
-            codeBlock: {
-                languages: [
-                    { language: 'css', label: 'CSS' },
-                    { language: 'html', label: 'HTML' }
-                ]
-            },
-            image: {
-                // Configure the available styles.
-                styles: [
-                    'alignLeft', 'alignCenter', 'alignRight'
-                ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify ",
+        file_picker_callback : function(callback, value, meta) {
+            var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+            var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-                // Configure the available image resize options.
-                resizeOptions: [
-                    {
-                        name: 'imageResize:original',
-                        label: 'Original',
-                        value: null
-                    },
-                    {
-                        name: 'imageResize:50',
-                        label: '50%',
-                        value: '50'
-                    },
-                    {
-                        name: 'imageResize:75',
-                        label: '75%',
-                        value: '75'
-                    }
-                ],
+            var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
+            if (meta.filetype == 'image') {
+                cmsURL = cmsURL + "&type=Images";
+            } else {
+                cmsURL = cmsURL + "&type=Files";
+            }
 
-                // You need to configure the image toolbar, too, so it shows the new style
-                // buttons as well as the resize buttons.
-                toolbar: [
-                    'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
-                    '|',
-                    'imageResize',
-                    '|',
-                    'imageTextAlternative'
-                ]
-            },
-            toolbar: {
-                items: [
-                    'heading',
-                    '|',
-                    'bold',
-                    'italic',
-                    'fontSize',
-                    'fontColor',
-                    'fontFamily',
-                    'highlight',
-                    'link',
-                    'bulletedList',
-                    'numberedList',
-                    '|',
-                    'indent',
-                    'outdent',
-                    'alignment',
-                    '|',
-                    'blockQuote',
-                    'insertTable',
-                    'mediaEmbed',
-                    'undo',
-                    'redo',
-                    'CKFinder',
-                    'exportPdf',
-                    'exportWord',
-                    'removeFormat',
-                    'codeBlock',
-                    'htmlEmbed'
-                ]
-            },
-            language: 'ru',
-            table: {
-                contentToolbar: [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells'
-                ]
-            },
-        } )
-        .catch( function( error ) {
-            console.error( error );
-        } );
+            tinyMCE.activeEditor.windowManager.openUrl({
+                url : cmsURL,
+                title : 'Filemanager',
+                width : x * 0.8,
+                height : y * 0.8,
+                resizable : "yes",
+                close_previous : "no",
+                onMessage: (api, message) => {
+                    callback(message.content);
+                }
+            });
+        }
+    };
 
-    ClassicEditor
-        .create( document.querySelector( '#description' ), {
-            toolbar: ['heading', '|', 'bold', 'italic', '|', 'undo', 'redo' ]
-        } )
-        .catch( function( error ) {
-            console.error( error );
-        } );
+    tinymce.init(editor_config);
+    var editor_config = {
+        path_absolute : "/",
+        selector: '#content',
+        height:800,
+        relative_urls: false,
+        plugins: [
+            "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+            "searchreplace wordcount visualblocks visualchars code fullscreen",
+            "insertdatetime media nonbreaking save table directionality",
+            "emoticons template paste textpattern"
+        ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+        file_picker_callback : function(callback, value, meta) {
+            var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+            var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-    $(function () {
-        bsCustomFileInput.init();
-    });
+            var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
+            if (meta.filetype == 'image') {
+                cmsURL = cmsURL + "&type=Images";
+            } else {
+                cmsURL = cmsURL + "&type=Files";
+            }
 
+            tinyMCE.activeEditor.windowManager.openUrl({
+                url : cmsURL,
+                title : 'Filemanager',
+                width : x * 0.8,
+                height : y * 0.8,
+                resizable : "yes",
+                close_previous : "no",
+                onMessage: (api, message) => {
+                    callback(message.content);
+                }
+            });
+        }
+    };
+
+    tinymce.init(editor_config);
 </script>
+
 </body>
 </html>

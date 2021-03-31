@@ -17,6 +17,12 @@ Route::get('/article/{slug}', [MainController::class, 'show'])->name('article');
 Route::get('/category/{slug}', [FrontCategoryController::class, 'index'])->name('category');
 Route::post('/category', [FrontCategoryController::class, 'load_more'])->name('load_more_data');
 
+/**
+ * Маршруты для пакета laravel-filemanager
+ */
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
 /**
  * Группа маршрутов для админпанели

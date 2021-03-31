@@ -52,6 +52,13 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        'testDisk' => [
+            'driver' => 'local',
+            'root' => public_path('public/ckfinder/userfiles'),
+            'url' => '/public/ckfinder/userfiles',
+            'visibility' => 'public',
+        ],
+
     ],
 
     /*

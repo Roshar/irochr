@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Описание</label>
-                                        <textarea class="form-control @error('description') is-invalid @enderror"  name="description" id="description" rows="3" placeholder="Описание..."></textarea>
+                                        <textarea class="form-control  description-editor @error('description') is-invalid @enderror"  name="description" id="description" rows="3" placeholder="Описание..."></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Контент</label>
