@@ -11,7 +11,7 @@ class Post extends Model
 {
     use Sluggable;
 
-    protected $fillable = ['title','description','content','category_id','thumbnail'];
+    protected $fillable = ['title','description','content','category_id','type_id','thumbnail'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -62,7 +62,7 @@ class Post extends Model
     public function getImage()
     {
         if(!$this->thumbnail){
-            return asset('no-image.png');
+            return asset('uploads/no-image.jpg');
         }
         return asset('uploads/'.$this->thumbnail);
     }

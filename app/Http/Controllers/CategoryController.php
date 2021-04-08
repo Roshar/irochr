@@ -14,11 +14,4 @@ class CategoryController extends Controller
         return view('categories', compact('category', 'posts'));
     }
 
-    // public function load_more(Request $request, $slug)
-    // {
-    //     if($request->ajax()){
-    //         return "dd0";
-    //     }
-
-    // }
 }

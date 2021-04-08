@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Akkino;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -26,9 +27,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //$parentCategory = Category::all()->where('parent_id','!=',null);
+
         $parentCategory = Category::all();
-        return view('admin.categories.create',compact('parentCategory'));
+        $types = DB::select('SELECT * FROM material_type');
+        return view('admin.categories.create',compact('parentCategory','types'));
     }
 
 

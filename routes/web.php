@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\CategoryController as FrontCategoryController;
+use App\Http\Controllers\InstituteController;
 use App\Http\Controllers\Akkino\MainController as AkkinoController; //Контроллер Админки
 use App\Http\Controllers\Akkino\CategoryController;
 use App\Http\Controllers\Akkino\PostController;
@@ -15,6 +16,28 @@ use App\Http\Controllers\UserController;
 Route::get('/', [MainController::class, 'index'])->name('home');
 Route::get('/article/{slug}', [MainController::class, 'show'])->name('article');
 Route::get('/category/{slug}', [FrontCategoryController::class, 'index'])->name('category');
+
+//Раздел "Институт"
+Route::group(['prefix' => 'institute'], function(){
+    Route::get('/', [InstituteController::class, 'index'])->name('institute.index');
+    Route::get('/document', [InstituteController::class, 'document'])->name('institute.document');
+    Route::get('/structure', [InstituteController::class, 'structure'])->name('institute.structure');
+    Route::get('/leadership', [InstituteController::class, 'leadership'])->name('institute.leadership');
+    Route::get('/material_technical_support', [InstituteController::class, 'material_technical_support'])->name('institute.mts');
+    Route::get('/scholarships', [InstituteController::class, 'scholarships'])->name('institute.scholarships');
+    Route::get('/education', [InstituteController::class, 'education'])->name('institute.education');
+    Route::get('/educational_standards', [InstituteController::class, 'educational_standards'])->name('institute.educational_standards');
+    Route::get('/financial_and_economic_activities', [InstituteController::class, 'financial_and_economic_activities'])->name('institute.financial');
+    Route::get('/vacancies', [InstituteController::class, 'vacancies'])->name('institute.vacancies');
+    Route::get('/paid_educational_services', [InstituteController::class, 'paid_educational_services'])->name('institute.paid_educational_services');
+});
+
+//Раздел "Центры"
+Route::group(['prefix' => 'center'], function(){
+    Route::get('/', [InstituteController::class, 'index'])->name('center.index');
+});
+
+
 Route::post('/category', [FrontCategoryController::class, 'load_more'])->name('load_more_data');
 
 /**

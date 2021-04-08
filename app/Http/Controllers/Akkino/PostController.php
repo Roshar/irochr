@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -28,8 +29,14 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::pluck('title','id')->all();
-        return view('admin.posts.create',compact('categories'));
+
+        $categories = Category::all();
+        $types = DB::select('SELECT * FROM material_type');
+
+
+
+
+        return view('admin.posts.create',compact('categories','types'));
     }
 
     /**
@@ -44,13 +51,13 @@ class PostController extends Controller
         //назначаем валидацию
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
             'content' => 'required',
             'thumbnail' => 'nullable|image|mimes:jpg,bmp,png'
         ]);
         //Сохраняем
         $data = $request->all();
-        //загрузка ищображения
+
+        //загрузка изображения
         $data['thumbnail'] = Post::imageUpload($request);
 
         Post::create($data);
@@ -82,7 +89,6 @@ class PostController extends Controller
 
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
             'content' => 'required',
             'thumbnail' => 'nullable|image|mimes:jpg,bmp,png'
         ]);

@@ -3,6 +3,43 @@
 @section('title','Главная')
 
 @section('content')
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.7);
+        }
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: transparent;
+            margin: 15% auto;
+            padding: 20px;
+            width: max-content;
+        }
+
+        .close {
+            color: white;
+            font-size: 38px;
+            font-weight: bold;
+            position: absolute;
+            top:-10%;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 
     <section class="slider_section">
         <div class="slider_section__items">
@@ -42,15 +79,12 @@
             </div>
             <div class="actual_video">
                 <h3 class="bigger">Актуальное видео</h3>
-
                 @foreach($mainMovie as $movie)
                 <div class="actual_video__block">
                     <div class="actual_video__recording">
-                        <iframe width="100%" height="100%" src="{{$movie->content}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        {!! $movie->content !!}
                     </div>
-
-{{--                    {!! $movie->content !!}--}}
-
+                    {!! $movie->content !!}
                     <h3 class="actual_video__heading">
                         <a class="">
                             {{$movie->title}}
@@ -98,55 +132,33 @@
     <div class="container documents_section">
         <h2>Нормативные документы</h2>
         <div class="row documents">
-            <a href="#" class="document">
-                <i class="far fa-file-alt"></i>
-                <p class="document_title">Приказ Минобрнауки ЧР №86-п от 08.02.2011 г. "О введении ФГОС" </p>
-            </a>
-            <a href="#" class="document">
-                <i class="far fa-file-alt"></i>
-                <p class="document_title">Закон Чеченской Республики от 30 октября 2014 г. N 37-РЗ "Об образовании в Чеченской Республике"</p>
-            </a>
-            <a href="#" class="document">
-                <i class="far fa-file-alt"></i>
-                <p class="document_title">О внесении изменений в статьи 48 и 481 закона чеченской республики «об образовании в Чеченской Республике»</p>
-            </a>
-            <a href="#" class="document">
-                <i class="far fa-file-alt"></i>
-                <p class="document_title">Приказ Минобрнауки ЧР №86-п от 08.02.2011 г. "О введении ФГОС" </p>
-            </a>
-            <a href="#" class="document">
-                <i class="far fa-file-alt"></i>
-                <p class="document_title">Закон Чеченской Республики от 30 октября 2014 г. N 37-РЗ "Об образовании в Чеченской Республике"</p>
-            </a>
-            <a href="#" class="document hide-m">
-                <i class="far fa-file-alt"></i>
-                <p class="document_title">О внесении изменений в статьи 48 и 481 закона чеченской республики «об образовании в Чеченской Республике»</p>
-            </a>
-            <a href="#" class="document hide-m">
-                <i class="far fa-file-alt"></i>
-                <p class="document_title">Приказ Минобрнауки ЧР №86-п от 08.02.2011 г. "О введении ФГОС" </p>
-            </a>
-            <a href="#" class="document hide-m">
-                <i class="far fa-file-alt"></i>
-                <p class="document_title">Закон Чеченской Республики от 30 октября 2014 г. N 37-РЗ "Об образовании в Чеченской Республике"</p>
-            </a>
-            <a href="#" class="document hide-m">
-                <i class="far fa-file-alt"></i>
-                <p class="document_title">О внесении изменений в статьи 48 и 481 закона чеченской республики «об образовании в Чеченской Республике»</p>
-            </a>
+
+            @foreach($documents as $doc)
+                <a href="{{$doc->content}}" class="document" target="_blank">
+                    <i class="far fa-file-alt"></i>
+                    <p class="document_title">{{$doc->title}} </p>
+                </a>
+            @endforeach
+
         </div>
-        <a href="templates/institiute/regulations.html" class="to_all_link">Все документы</a>
+        <a href="{{route('institute.document')}}" class="to_all_link">Все документы</a>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close">&times;</span>
+            <div id="container-video" style="text-align: center">
+            </div>
+        </div>
     </div>
     <div class="container--colored">
         <div class="container videos_section">
             <h2>Видео</h2>
             <div class="row videos">
-                <div class="video"><iframe width="100%" height="315" src="https://www.youtube.com/embed/u09M20Z77Hw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                <div class="video"><iframe width="100%" height="315" src="https://www.youtube.com/embed/u09M20Z77Hw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                <div class="video"><iframe width="100%" height="315" src="https://www.youtube.com/embed/u09M20Z77Hw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                <div class="video hide-m"><iframe width="100%" height="315" src="https://www.youtube.com/embed/u09M20Z77Hw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                <div class="video hide-m"><iframe width="100%" height="315" src="https://www.youtube.com/embed/u09M20Z77Hw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                <div class="video hide-m"><iframe width="100%" height="315" src="https://www.youtube.com/embed/u09M20Z77Hw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                @foreach($videoList->items as $key=> $item)
+                    <div class="video hide-m">
+                          <img src="{{$item->snippet->thumbnails->high->url}}" class="myBtn"  data-id="{{$item->id->videoId}}" alt="">
+                    </div>
+                @endforeach
             </div>
             <a href="templates/institiute/regulations.html" class="to_all_link">Все видео</a>
         </div>
@@ -177,7 +189,6 @@
         </div>
         <a href="templates/institiute/regulations.html" class="to_all_link">Все товары</a>
     </div>
-    <!-- <div class="container--colored"> -->
     <div class="container testimonials_section">
         <h2>Отзывы</h2>
         <div class="testimonials_controllers">
@@ -186,108 +197,16 @@
         </div>
         <div class="testimonials_wrapper">
             <div class="testimonials">
+                @foreach($reviews as $rev)
                 <div class="testimonial">
-                    <p class="testimonial__name">Петров Иван</p>
-                    <p class="testimonial__org">СОШ №1</p>
-                    <p class="testimonial__text">3 июля 2020 года завершились курсы повышения квалификации
-                        «Организация учебной деятельности в предметной области
-                        «Иностранные языки» по результатам оценки качества образования
-                        в условиях внедрения новых ФГОС». 33 педагога Липецкой области
-                        высоко оценили КПК, отметив значимость и актуальность материала,
-                        изучаемого на курсах в рамках лекционной и практической работы.
-                        Несмотря на новый формат проведения курсов (в режиме on-line),
-                        учителя ИЯ получили исчерпывающие ответы на интересующие их вопросы,
-                        что способствует развитию профессиональных навыков и повышению качества
-                        преподавания.</p>
+                    <p class="testimonial__name">{{$rev->title}}</p>
+                    <p class="testimonial__text">{!! $rev->content !!}</p>
                 </div>
-                <div class="testimonial">
-                    <p class="testimonial__name">Иванов Иван</p>
-                    <p class="testimonial__org">СОШ №1</p>
-                    <p class="testimonial__text">3 июля 2020 года завершились курсы повышения квалификации
-                        «Организация учебной деятельности в предметной области
-                        «Иностранные языки» по результатам оценки качества образования
-                        в условиях внедрения новых ФГОС». 33 педагога Липецкой области
-                        высоко оценили КПК, отметив значимость и актуальность материала,
-                        изучаемого на курсах в рамках лекционной и практической работы.
-                        Несмотря на новый формат проведения курсов (в режиме on-line),
-                        учителя ИЯ получили исчерпывающие ответы на интересующие их вопросы,
-                        что способствует развитию профессиональных навыков и повышению качества
-                        преподавания.</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial__name">Николаев Иван</p>
-                    <p class="testimonial__org">СОШ №1</p>
-                    <p class="testimonial__text">3 июля 2020 года завершились курсы повышения квалификации
-                        «Организация учебной деятельности в предметной области
-                        «Иностранные языки» по результатам оценки качества образования
-                        в условиях внедрения новых ФГОС». 33 педагога Липецкой области
-                        высоко оценили КПК, отметив значимость и актуальность материала,
-                        изучаемого на курсах в рамках лекционной и практической работы.
-                        Несмотря на новый формат проведения курсов (в режиме on-line),
-                        учителя ИЯ получили исчерпывающие ответы на интересующие их вопросы,
-                        что способствует развитию профессиональных навыков и повышению качества
-                        преподавания.</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial__name">Грачев Иван</p>
-                    <p class="testimonial__org">СОШ №1</p>
-                    <p class="testimonial__text">3 июля 2020 года завершились курсы повышения квалификации
-                        «Организация учебной деятельности в предметной области
-                        «Иностранные языки» по результатам оценки качества образования
-                        в условиях внедрения новых ФГОС». 33 педагога Липецкой области
-                        высоко оценили КПК, отметив значимость и актуальность материала,
-                        изучаемого на курсах в рамках лекционной и практической работы.
-                        Несмотря на новый формат проведения курсов (в режиме on-line),
-                        учителя ИЯ получили исчерпывающие ответы на интересующие их вопросы,
-                        что способствует развитию профессиональных навыков и повышению качества
-                        преподавания.</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial__name">Грачев Иван</p>
-                    <p class="testimonial__org">СОШ №1</p>
-                    <p class="testimonial__text">3 июля 2020 года завершились курсы повышения квалификации
-                        «Организация учебной деятельности в предметной области
-                        «Иностранные языки» по результатам оценки качества образования
-                        в условиях внедрения новых ФГОС». 33 педагога Липецкой области
-                        высоко оценили КПК, отметив значимость и актуальность материала,
-                        изучаемого на курсах в рамках лекционной и практической работы.
-                        Несмотря на новый формат проведения курсов (в режиме on-line),
-                        учителя ИЯ получили исчерпывающие ответы на интересующие их вопросы,
-                        что способствует развитию профессиональных навыков и повышению качества
-                        преподавания.</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial__name">Грачев Иван</p>
-                    <p class="testimonial__org">СОШ №1</p>
-                    <p class="testimonial__text">3 июля 2020 года завершились курсы повышения квалификации
-                        «Организация учебной деятельности в предметной области
-                        «Иностранные языки» по результатам оценки качества образования
-                        в условиях внедрения новых ФГОС». 33 педагога Липецкой области
-                        высоко оценили КПК, отметив значимость и актуальность материала,
-                        изучаемого на курсах в рамках лекционной и практической работы.
-                        Несмотря на новый формат проведения курсов (в режиме on-line),
-                        учителя ИЯ получили исчерпывающие ответы на интересующие их вопросы,
-                        что способствует развитию профессиональных навыков и повышению качества
-                        преподавания.</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial__name">Грачев Иван</p>
-                    <p class="testimonial__org">СОШ №1</p>
-                    <p class="testimonial__text">3 июля 2020 года завершились курсы повышения квалификации
-                        «Организация учебной деятельности в предметной области
-                        «Иностранные языки» по результатам оценки качества образования
-                        в условиях внедрения новых ФГОС». 33 педагога Липецкой области
-                        высоко оценили КПК, отметив значимость и актуальность материала,
-                        изучаемого на курсах в рамках лекционной и практической работы.
-                        Несмотря на новый формат проведения курсов (в режиме on-line),
-                        учителя ИЯ получили исчерпывающие ответы на интересующие их вопросы,
-                        что способствует развитию профессиональных навыков и повышению качества
-                        преподавания.</p>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>
-
     <div class="container links_section">
         <h2>Полезные ссылки</h2>
         <div class="row links">
@@ -305,7 +224,6 @@
             </a>
         </div>
     </div>
-
     <div class="container partners_section">
         <h2>Партнёры</h2>
         <div class="row partners">
@@ -318,5 +236,30 @@
     </div>
     <button class="scroll_to_top_button--hidden"><i class="fas fa-chevron-up"></i></button>
 
+    <script>
+        $(document).ready(function() {
+            let modal = document.getElementById("myModal");
+            let content = $('#container-video')
 
+            $('.myBtn').click((event)=>{
+                let link = event.target.getAttribute("data-id")
+                content = $('#container-video')
+                content.append('<iframe id="ytplayer" type="text/html" width="720" height="405" src="https://www.youtube.com/embed/'+link+'?autoplay=1'+'" frameborder="0" allowfullscreen>')
+                modal.style.display = "inline-block";
+            })
+
+            $('#close').click(()=>{
+                modal.style.display = "none";
+                content.empty()
+            })
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    content.empty()
+                }
+            }
+        });
+
+    </script>
 @endsection

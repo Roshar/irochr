@@ -42,16 +42,24 @@
                                                placeholder="Название" name="title">
                                     </div>
                                     <div class="form-group">
-                                        <!-- РЕАЛИЗОВАТЬ ВЫВОД РОДИТЕЛЬСКОЙ КАТЕГОРИИ-->
-                                        <label for="title">Родительская категория</label>
-                                        <select name="parent_id" id="parent_id">
-                                            <option value=""> без родительской категорий </option>
-                                        @if(count($parentCategory))
-                                                @foreach($parentCategory as $pcat)
-                                                    <option value="{{$pcat->id}}"> {{$pcat->title}} </option>
-                                                @endforeach
-                                        @endif
+                                        <label for="title">Выбрать тип материала</label>
+                                        <select class="custom-select form-control-border border-width-2" name="type_id" id="selectType">
+                                            @foreach($types as $type)
+                                                <option value="{{$type->id_type}}">{{$type->type_title}}</option>
+                                            @endforeach
                                         </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- РЕАЛИЗОВАТЬ ВЫВОД РОДИТЕЛЬСКОЙ КАТЕГОРИИ-->
+{{--                                        <label for="title">Родительская категория</label>--}}
+{{--                                        <select name="parent_id" id="parent_id">--}}
+{{--                                            <option value=""> без родительской категорий </option>--}}
+{{--                                        @if(count($parentCategory))--}}
+{{--                                                @foreach($parentCategory as $pcat)--}}
+{{--                                                    <option value="{{$pcat->id}}"> {{$pcat->title}} </option>--}}
+{{--                                                @endforeach--}}
+{{--                                        @endif--}}
+{{--                                        </select>--}}
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

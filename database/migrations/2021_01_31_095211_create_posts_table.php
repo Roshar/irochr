@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug')->unique(); //для ускорения выборки
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->text('content');
             $table->integer('category_id',false,true);
             $table->integer('views',false,true)->default(0);

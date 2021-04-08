@@ -10,7 +10,7 @@ class Category extends Model
     use Sluggable;
 
     //Разрешить массово заполнять title
-    protected $fillable = ['title','parent_id'];
+    protected $fillable = ['title','type_id','parent_id'];
 
     public function post()
     {

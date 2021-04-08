@@ -1,5 +1,4 @@
 @extends('admin.layouts.layout')
-
 @section('content')
 
         <!-- Content Header (Page header) -->
@@ -7,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Новая статья</h1>
+                        <h1>Новый материал</h1>
                     </div>
                     <div class="col-sm-6">
 
@@ -25,7 +24,7 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Новая статья</h3>
+                                <h3 class="card-title">Новый материал</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
@@ -33,11 +32,20 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
+                                        <label for="title">Выбрать тип материала</label>
+                                        <select class="custom-select form-control-border border-width-2" name="type_id" id="selectType">
+                                            @foreach($types as $type)
+                                            <option value="{{$type->id_type}}">{{$type->type_title}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="title">Заголовок</label>
                                         <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
                                                placeholder="Название" name="title">
                                     </div>
-                                    <div class="form-group">
+
+                                    <div class="form-group" id="article-block">
                                         <label>Описание</label>
                                         <textarea class="form-control  description-editor @error('description') is-invalid @enderror"  name="description" id="description" rows="3" placeholder="Описание..."></textarea>
                                     </div>
@@ -48,13 +56,13 @@
                                     <div class="form-group">
                                         <label>Категория</label>
                                         <select name="category_id" id="category_id" class="custom-select">
-{{--                                            <option value="2"> без категорий </option>--}}
-                                        @if(count($categories))
+                                            @if(count($categories))
                                                 @foreach($categories as $k => $cat)
-                                                    <option value="{{$k}}"   @if ($k == 2)selected @endif> {{$cat}} </option>
+                                                    <option value="{{$cat['id']}}" class="io" data-type="{{$cat['type_id']}}"> {{$cat['title']}}  </option>
                                                 @endforeach
-                                        @endif
+                                            @endif
                                         </select>
+
                                     </div>
                                     <div class="form-group">
                                         <label for="thumbnail">Изображение</label>
@@ -69,7 +77,7 @@
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Создать статью</button>
+                                    <button type="submit" id="btn-action" class="btn btn-primary">Добавить статью</button>
                                 </div>
                             </form>
                         </div>
@@ -81,5 +89,57 @@
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
+        <script>
+            $( document ).ready(function() {
 
+                $('#selectType').change(()=>{
+                    let flag = document.querySelector('#selectType').value
+                    let sel = false
+                    selectType(flag)
+                    dataAttributes(flag,sel)
+                })
+
+                function dataAttributes(flag,sel){
+
+                    flag = typeof flag !== 'undefined' ?  flag : document.querySelector('#selectType').value;
+                    let elements = document.querySelectorAll('.io');
+                    if(flag){
+                       for(let i = 0; i<elements.length; i++){
+                           if(elements[i].getAttribute('data-type')!= flag){
+                               elements[i].style.display = 'none'
+                               elements[i].removeAttribute('selected')
+                           }else{
+                               if(!sel){
+                                   sel = true
+                                   elements[i].setAttribute('selected', true);
+                               }
+                               elements[i].style.display = "block";
+                           }
+                       }
+                    }
+                }
+                function selectType(flag){
+                    if(flag == 1){
+                        $('#article-block').show()
+                        $('#btn-action').text("Добавить статью")
+
+                    }
+                    if(flag==2){
+                        $('#article-block').hide()
+                        $('#btn-action').text("Добавить документ")
+
+                    }
+                    if(flag==3){
+                        $('#article-block').hide()
+                        $('#btn-action').text("Добавить видео")
+                    }
+                    if(flag==4){
+                        $('#article-block').hide()
+                        $('#btn-action').text("Добавить отзыв")
+                    }
+                }
+                dataAttributes()
+            });
+
+        </script>
 @endsection
