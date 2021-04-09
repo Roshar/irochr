@@ -13,6 +13,7 @@
             <nav class="sidebar_menu">
                 <ul class="sidebar_menu__items">
                     <li class="sidebar_menu__item"><a href="{{route('institute.index')}}">Основные сведения</a></li>
+                    <li class="sidebar_menu__item"><a href="{{route('institute.history')}}">История</a></li>
                     <li class="sidebar_menu__item"><a href="{{route('institute.structure')}}">Структура и органы управления образовательной организации</a></li>
                     <li class="sidebar_menu__item"><a href="{{route('institute.document')}}">Документы</a></li>
                     <li class="sidebar_menu__item"><a href="{{route('institute.education')}}">Образование</a></li>

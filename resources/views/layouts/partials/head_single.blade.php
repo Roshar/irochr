@@ -36,12 +36,12 @@
                 <ul class="main_nav__items">
                     <li class="main_nav__item main_nav__item--parent"><a href="#" class="not_for_hover">Институт <i class="fas fa-caret-down"></i></a>
                         <ul class="main_nav_submenu">
-                            <li class="main_nav_submenu__item"><a href="institiute/general_information.html">Общие сведения</a></li>
-                            <li class="main_nav_submenu__item"><a href="institiute/history.html">История института</a></li>
-                            <li class="main_nav_submenu__item"><a href="institiute/general_information.html">Сведения об образовательной организации</a></li>
-                            <li class="main_nav_submenu__item"><a href="institiute/centers.html">Центры</a></li>
-                            <li class="main_nav_submenu__item"><a href="institiute/council.html">Учёный совет</a></li>
-                            <li class="main_nav_submenu__item"><a href="institiute/trade_union.html">Профсоюзная страничка</a></li>
+                            <li class="main_nav_submenu__item"><a href="{{route('institute.index')}}">Общие сведения</a></li>
+                            <li class="main_nav_submenu__item"><a href="{{route('institute.history')}}">История</a></li>
+                            <li class="main_nav_submenu__item"><a href="{{route('institute.structure')}}">Сведения об образовательной организации</a></li>
+                            <li class="main_nav_submenu__item"><a href="{{route('center.index')}}">Центры</a></li>
+                            <li class="main_nav_submenu__item"><a href="templates/institiute/council.html">Учёный совет</a></li>
+                            <li class="main_nav_submenu__item"><a href="templates/institiute/trade_union.html">Профсоюзная страничка</a></li>
                         </ul>
                     </li>
                     <li class="main_nav__item"><a href="news.html">Новости</a></li>

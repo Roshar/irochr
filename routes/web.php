@@ -8,6 +8,7 @@ use App\Http\Controllers\Akkino\MainController as AkkinoController; //Контр
 use App\Http\Controllers\Akkino\CategoryController;
 use App\Http\Controllers\Akkino\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CenterController;
 
 /**
  * Маршруты для клиентской части
@@ -20,6 +21,7 @@ Route::get('/category/{slug}', [FrontCategoryController::class, 'index'])->name(
 //Раздел "Институт"
 Route::group(['prefix' => 'institute'], function(){
     Route::get('/', [InstituteController::class, 'index'])->name('institute.index');
+    Route::get('/history', [InstituteController::class, 'history'])->name('institute.history');
     Route::get('/document', [InstituteController::class, 'document'])->name('institute.document');
     Route::get('/structure', [InstituteController::class, 'structure'])->name('institute.structure');
     Route::get('/leadership', [InstituteController::class, 'leadership'])->name('institute.leadership');
@@ -34,7 +36,19 @@ Route::group(['prefix' => 'institute'], function(){
 
 //Раздел "Центры"
 Route::group(['prefix' => 'center'], function(){
-    Route::get('/', [InstituteController::class, 'index'])->name('center.index');
+    Route::get('/', [CenterController::class, 'index'])->name('center.index');
+    Route::get('/ric', [CenterController::class, 'ric'])->name('center.ric');
+    Route::get('/cito', [CenterController::class, 'cito'])->name('center.cito');
+    Route::get('/cgia', [CenterController::class, 'cgia'])->name('center.cgia');
+    Route::get('/cio', [CenterController::class, 'cio'])->name('center.cio');
+    Route::get('/cmi', [CenterController::class, 'cmi'])->name('center.cmi');
+    Route::get('/ced', [CenterController::class, 'ced'])->name('center.ced');
+    Route::get('/cod', [CenterController::class, 'cod'])->name('center.cod');
+    Route::get('/cm', [CenterController::class, 'cm'])->name('center.cm');
+    Route::get('/cno', [CenterController::class, 'cno'])->name('center.cno');
+    Route::get('/cvps', [CenterController::class, 'cvps'])->name('center.cvps');
+    Route::get('/cfo', [CenterController::class, 'cfo'])->name('center.cfo');
+    Route::get('/cofc', [CenterController::class, 'cofc'])->name('center.cofc');
 });
 
 

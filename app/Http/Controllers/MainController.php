@@ -32,7 +32,9 @@ class MainController extends Controller
 //        var_dump($videoList);
 //        exit;
 
-       return view('index', compact('posts','mainArticle','announces','mainMovie','videoList','documents'));
+        $reviews = Post::with('category')->where('category_id', '16')->orderBy('id', 'desc')->paginate(6);
+
+        return view('index', compact('posts','mainArticle','announces','mainMovie','documents','videoList','reviews'));
     }
 
     public function show($slug)

@@ -14,6 +14,12 @@ class InstituteController extends Controller
         return view('institute.index',compact('title'));
     }
 
+    public function history()
+    {
+        $title="История";
+        return view('institute.history',compact('title'));
+    }
+
     public function document()
     {
         $documents = DB::select('SELECT * FROM posts WHERE category_id = 3');

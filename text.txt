@@ -1,0 +1,6 @@
+
+
+
+
+API_KEY="AIzaSyAG3GyDRMSgc__9YKM37DNDzi0og_Koz1Q"
+SEARCH_ENDPOINT="https://www.googleapis.com/youtube/v3/search"

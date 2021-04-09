@@ -81,9 +81,6 @@
                 <h3 class="bigger">Актуальное видео</h3>
                 @foreach($mainMovie as $movie)
                 <div class="actual_video__block">
-                    <div class="actual_video__recording">
-                        {!! $movie->content !!}
-                    </div>
                     {!! $movie->content !!}
                     <h3 class="actual_video__heading">
                         <a class="">
@@ -154,41 +151,64 @@
         <div class="container videos_section">
             <h2>Видео</h2>
             <div class="row videos">
-                @foreach($videoList->items as $key=> $item)
-                    <div class="video hide-m">
-                          <img src="{{$item->snippet->thumbnails->high->url}}" class="myBtn"  data-id="{{$item->id->videoId}}" alt="">
-                    </div>
-                @endforeach
+                @if(isset($videoList))
+                    @foreach($videoList->items as $key=> $item)
+                        <div class="video hide-m">
+                              <img src="{{$item->snippet->thumbnails->high->url}}" class="myBtn"  data-id="{{$item->id->videoId}}" alt="">
+                        </div>
+                    @endforeach
+                @endif
             </div>
             <a href="templates/institiute/regulations.html" class="to_all_link">Все видео</a>
         </div>
     </div>
-    <div class="container store_section">
-        <h2>Витрина</h2>
-        <div class="row products">
-            <a href="" class="product">
-                <img src="assets/front/img/products/obl1.16.jpg" alt="">
-                <p>Журнал “Вестник”</p>
+    <div class="container resources_section">
+        <h2>Информационные ресурсы института</h2>
+        <div class="row resources">
+            <a href="http://tallam.ru/" class="resource">
+                <img src="{{asset('assets/front/img/resources/tallam.png')}}" alt="Tallam">
+                <p>Информационно-аналитическая платформа Tallam</p>
             </a>
-            <a href="" class="product">
-                <img src="assets/front/img/products/obl1.16.jpg" alt="">
-                <p>Журнал “Вестник”</p>
+            <a href="http://e-learning.ipkrochr.ru/" class="resource">
+                <img src="{{asset('assets/front/img/resources/moodle.png')}}" alt="Moodle ИРО ЧР">
+                <p>Учебный центр ГБУ ДПО ИРО ЧР</p>
             </a>
-            <a href="" class="product">
-                <img src="assets/front/img/products/obl1.16.jpg" alt="">
-                <p>Журнал “Вестник”</p>
+            <a href="http://poll.ipkrochr.ru/" class="resource">
+                <img src="<img src="{{asset('assets/front/img/resources/moodle.png')}}"" alt="Онлайн заявки на КПК">
+                <p>Онлайн заявки на КПК</p>
             </a>
-            <a href="" class="product">
-                <img src="assets/front/img/products/obl1.16.jpg" alt="">
-                <p>Журнал “Вестник”</p>
-            </a>
-            <a href="" class="product">
-                <img src="assets/front/img/products/obl1.16.jpg" alt="">
-                <p>Журнал “Вестник”</p>
+            <a href="https://statipkro.ru/" class="resource">
+                <img src="<img src="{{asset('assets/front/img/resources/moodle.png')}}"" alt="Statipkro">
+                <p>Портал изучения образовательных потребностей педагогического сообщества ЧР</p>
             </a>
         </div>
-        <a href="templates/institiute/regulations.html" class="to_all_link">Все товары</a>
     </div>
+{{--    <div class="container store_section">--}}
+{{--        <h2>Витрина</h2>--}}
+{{--        <div class="row products">--}}
+{{--            <a href="" class="product">--}}
+{{--                <img src="assets/front/img/products/obl1.16.jpg" alt="">--}}
+{{--                <p>Журнал “Вестник”</p>--}}
+{{--            </a>--}}
+{{--            <a href="" class="product">--}}
+{{--                <img src="assets/front/img/products/obl1.16.jpg" alt="">--}}
+{{--                <p>Журнал “Вестник”</p>--}}
+{{--            </a>--}}
+{{--            <a href="" class="product">--}}
+{{--                <img src="assets/front/img/products/obl1.16.jpg" alt="">--}}
+{{--                <p>Журнал “Вестник”</p>--}}
+{{--            </a>--}}
+{{--            <a href="" class="product">--}}
+{{--                <img src="assets/front/img/products/obl1.16.jpg" alt="">--}}
+{{--                <p>Журнал “Вестник”</p>--}}
+{{--            </a>--}}
+{{--            <a href="" class="product">--}}
+{{--                <img src="assets/front/img/products/obl1.16.jpg" alt="">--}}
+{{--                <p>Журнал “Вестник”</p>--}}
+{{--            </a>--}}
+{{--        </div>--}}
+{{--        <a href="templates/institiute/regulations.html" class="to_all_link">Все товары</a>--}}
+{{--    </div>--}}
     <div class="container testimonials_section">
         <h2>Отзывы</h2>
         <div class="testimonials_controllers">
