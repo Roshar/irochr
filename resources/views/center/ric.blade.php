@@ -4,7 +4,7 @@
 
 @section('content')
     <main class="with_aside center_template">
-        <h1>Центры института</h1>
+        <h1>{{$title}}</h1>
         <div class="center_wrapper center_wrapper--ric">
             <div class="center_block center_block--white center_main">
                 <img src="{{asset('assets/front/img/5.png')}}" alt="" class="center_block__image">
@@ -100,6 +100,8 @@
         </div>
     </main>
 @endsection
+
+
 
 
 

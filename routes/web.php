@@ -9,16 +9,22 @@ use App\Http\Controllers\Akkino\CategoryController;
 use App\Http\Controllers\Akkino\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CenterController;
+use App\Http\Controllers\VideoController;
 
 /**
- * Маршруты для клиентской части
+ * Основыные маршруты
  */
 
 Route::get('/', [MainController::class, 'index'])->name('home');
 Route::get('/article/{slug}', [MainController::class, 'show'])->name('article');
 Route::get('/category/{slug}', [FrontCategoryController::class, 'index'])->name('category');
+Route::get('/news_list', [FrontCategoryController::class, 'news_list'])->name('news_list');
+Route::get('/announce_list', [FrontCategoryController::class, 'announce_list'])->name('announce_list');
 
-//Раздел "Институт"
+/**
+ * Раздел "Институт"
+ */
+
 Route::group(['prefix' => 'institute'], function(){
     Route::get('/', [InstituteController::class, 'index'])->name('institute.index');
     Route::get('/history', [InstituteController::class, 'history'])->name('institute.history');
@@ -34,7 +40,10 @@ Route::group(['prefix' => 'institute'], function(){
     Route::get('/paid_educational_services', [InstituteController::class, 'paid_educational_services'])->name('institute.paid_educational_services');
 });
 
-//Раздел "Центры"
+/**
+ * Раздел "Центры"
+ */
+
 Route::group(['prefix' => 'center'], function(){
     Route::get('/', [CenterController::class, 'index'])->name('center.index');
     Route::get('/ric', [CenterController::class, 'ric'])->name('center.ric');
@@ -51,6 +60,17 @@ Route::group(['prefix' => 'center'], function(){
     Route::get('/cofc', [CenterController::class, 'cofc'])->name('center.cofc');
 });
 
+/**
+ * Раздел видео
+ */
+Route::group(['prefix' => 'video_content'], function(){
+    Route::get('/', [VideoController::class, 'index'])->name('video_content.index');
+    Route::get('/instruction_student', [VideoController::class, 'instruction_student'])->name('video_content.instruction_student');
+    Route::get('/instruction_teacher', [VideoController::class, 'instruction_teacher'])->name('video_content.instruction_teacher');
+    Route::get('/master_class', [VideoController::class, 'master_class'])->name('video_content.master_class');
+    Route::get('/smi', [VideoController::class, 'smi'])->name('video_content.smi');
+
+});
 
 Route::post('/category', [FrontCategoryController::class, 'load_more'])->name('load_more_data');
 
@@ -80,7 +100,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', [UserController::class,'loginForm'])->name('login.create');
     Route::post('/login', [UserController::class,'login'])->name('login');
 });
-
 
 Route::get('/logout', [UserController::class,'logout'])->name('logout')->middleware('auth');
 

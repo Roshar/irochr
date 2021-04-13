@@ -48,29 +48,12 @@ class MainController extends Controller
     public function mainArticle()
     {
         $mainArticle = Post::with('category')->where('category_id=6')->latest();
-        var_dump($mainArticle);
-        exit;
+//        var_dump($mainArticle);
+//        exit;
 //        return view('index', compact('posts'));
     }
 
-    // поисковик
-//    public function videoList($keyword)
-//    {
-//        $part = 'snippet';
-//        $country = 'RU';
-//        $apiKey = config('services.youtube.api_key');
-//        $maxResults = 12;
-//        $youtubeEndPoint = config('services.youtube.search_endpoint');
-//        $type = 'video'; //playlist,channel
-//        $url = "$youtubeEndPoint?part=$part&maxResults=$maxResults&regionCode=$country&type=$type&key=$apiKey&q=$keyword";
-//
-//        $response = Http::get($url);
-//        $results = json_decode($response);
-//        File::put(storage_path(). '/app/public/results.json',$response->body());
-//        return $results;
-//
-//    }
-//
+
     public function videoList()
     {
         $part = 'snippet';

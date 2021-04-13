@@ -44,8 +44,8 @@
                             <li class="main_nav_submenu__item"><a href="templates/institiute/trade_union.html">Профсоюзная страничка</a></li>
                         </ul>
                     </li>
-                    <li class="main_nav__item"><a href="news.html">Новости</a></li>
-                    <li class="main_nav__item"><a href="webinars.html">Вебинары</a></li>
+                    <li class="main_nav__item"><a href="{{route('news_list')}}">Новости</a></li>
+                    <li class="main_nav__item"><a href="{{route('video_content.index')}}">Вебинары</a></li>
                     <li class="main_nav__item"><a href="monitoring.html">Мониторинг</a></li>
                     <li class="main_nav__item search">
                         <form method="GET" action="" class="search_form">

@@ -124,7 +124,7 @@
                 @endforeach
             </div>
             <a href="{{ route('category', ['slug' => $post->category->slug])}}" class="to_all_link">Все новости</a>
-            <a href="{{ route('category', ['slug' => $announce->category->slug])}}" class="to_all_link to_all_link--disable">Все анонсы</a>
+            <a href="{{ route('announce')}}" class="to_all_link to_all_link--disable">Все анонсы</a>
         </section>
     <div class="container documents_section">
         <h2>Нормативные документы</h2>
@@ -159,56 +159,30 @@
                     @endforeach
                 @endif
             </div>
-            <a href="templates/institiute/regulations.html" class="to_all_link">Все видео</a>
+            <a href="{{route('video_content.index')}}" class="to_all_link">Все видео</a>
         </div>
     </div>
     <div class="container resources_section">
         <h2>Информационные ресурсы института</h2>
         <div class="row resources">
-            <a href="http://tallam.ru/" class="resource">
-                <img src="{{asset('assets/front/img/resources/tallam.png')}}" alt="Tallam">
+            <a href="http://tallam.ru/" class="resource" target="_blank">
+                <img src="{{asset('assets/front/img/resources/tallam.jpg')}}" alt="Tallam">
                 <p>Информационно-аналитическая платформа Tallam</p>
             </a>
-            <a href="http://e-learning.ipkrochr.ru/" class="resource">
-                <img src="{{asset('assets/front/img/resources/moodle.png')}}" alt="Moodle ИРО ЧР">
+            <a href="http://e-learning.ipkrochr.ru/" class="resource" target="_blank">
+                <img src="{{asset('assets/front/img/resources/moodle.jpg')}}" alt="Moodle ИРО ЧР">
                 <p>Учебный центр ГБУ ДПО ИРО ЧР</p>
             </a>
-            <a href="http://poll.ipkrochr.ru/" class="resource">
-                <img src="<img src="{{asset('assets/front/img/resources/moodle.png')}}"" alt="Онлайн заявки на КПК">
+            <a href="http://poll.ipkrochr.ru/" class="resource" target="_blank">
+                <img src="{{asset('assets/front/img/resources/online.jpg')}}" alt="Онлайн заявки на КПК">
                 <p>Онлайн заявки на КПК</p>
             </a>
-            <a href="https://statipkro.ru/" class="resource">
-                <img src="<img src="{{asset('assets/front/img/resources/moodle.png')}}"" alt="Statipkro">
+            <a href="https://statipkro.ru/" class="resource" target="_blank">
+                <img src="{{asset('assets/front/img/resources/stat1.jpg')}}"  alt="Statipkro">
                 <p>Портал изучения образовательных потребностей педагогического сообщества ЧР</p>
             </a>
         </div>
     </div>
-{{--    <div class="container store_section">--}}
-{{--        <h2>Витрина</h2>--}}
-{{--        <div class="row products">--}}
-{{--            <a href="" class="product">--}}
-{{--                <img src="assets/front/img/products/obl1.16.jpg" alt="">--}}
-{{--                <p>Журнал “Вестник”</p>--}}
-{{--            </a>--}}
-{{--            <a href="" class="product">--}}
-{{--                <img src="assets/front/img/products/obl1.16.jpg" alt="">--}}
-{{--                <p>Журнал “Вестник”</p>--}}
-{{--            </a>--}}
-{{--            <a href="" class="product">--}}
-{{--                <img src="assets/front/img/products/obl1.16.jpg" alt="">--}}
-{{--                <p>Журнал “Вестник”</p>--}}
-{{--            </a>--}}
-{{--            <a href="" class="product">--}}
-{{--                <img src="assets/front/img/products/obl1.16.jpg" alt="">--}}
-{{--                <p>Журнал “Вестник”</p>--}}
-{{--            </a>--}}
-{{--            <a href="" class="product">--}}
-{{--                <img src="assets/front/img/products/obl1.16.jpg" alt="">--}}
-{{--                <p>Журнал “Вестник”</p>--}}
-{{--            </a>--}}
-{{--        </div>--}}
-{{--        <a href="templates/institiute/regulations.html" class="to_all_link">Все товары</a>--}}
-{{--    </div>--}}
     <div class="container testimonials_section">
         <h2>Отзывы</h2>
         <div class="testimonials_controllers">

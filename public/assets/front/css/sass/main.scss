@@ -1,7 +1,7 @@
 /* font-family: 'Alegreya', serif;
 font-family: 'Istok Web', sans-serif;
 font-family: 'Open Sans', sans-serif; */
-@import './variables.scss';
+@import '../../../../../../../../../../Users/rashid/Downloads/chipkro-main 3/css/sass/variables';
 
 
 body{
@@ -33,7 +33,7 @@ main{
 
     a{
         color: $grey;
-    
+
         &:hover, &:active{
             color: $blue-m;
         }
@@ -167,17 +167,17 @@ main{
         @include md{
             padding: 3em 3.5em;
         }
-    
+
         @include mobile{
             padding: 1.5em 2em;
         }
-    
+
         &--header{
             @include md{
                 padding: 0;
             }
         }
-    
+
         &--with_aside{
             padding-top: 3em;
         }
@@ -189,8 +189,13 @@ main{
         text-align: center;
         color: $blue-m;
 
+        @include md{
+            font-size: 1.9rem;
+        }
+
         @include mobile{
             margin-bottom: .7em;
+            font-size: 1.5rem;
         }
     }
 
@@ -200,7 +205,7 @@ main{
     }
 
     .news{
-    
+
         width: 85%;
         max-width: 835px;
         margin-right: 6em;
@@ -220,7 +225,7 @@ main{
         @include mobile{
             margin-bottom: 2em;
         }
-        
+
         &__block{
             @include flex(space-between, center);
             font-family: 'Open Sans', sans-serif;
@@ -239,7 +244,7 @@ main{
         &__image{
             display: block;
             width: 50%;
-            height: 330px; 
+            height: 330px;
             box-shadow: 2px 3px 7px 0 rgba($color: #000, $alpha: .4),
                         -35px 32px 0px rgba($color: #4D59A0, $alpha: .5);
             margin-right: 2em;
@@ -300,7 +305,7 @@ main{
     }
 
     .actual_video{
-        
+
         /* @include large{ */
             width: 30%;
         /* } */
@@ -331,7 +336,7 @@ main{
             @include md{
                 max-height: 300px;
             }
-           
+
         }
 
         &__heading{
@@ -403,21 +408,21 @@ main{
         &--disable{
             display: none;
         }
-        
+
         &[data-name='announcements']{
             .card{
-                min-height: 610px; 
+                min-height: 610px;
             }
 
-            
+
         }
 
         .card{
             width: 30%;
             min-height: 655px;
             /* height: 655px; */
-            border: 2px solid $gold;   
-            text-align: center; 
+            border: 2px solid $gold;
+            text-align: center;
             margin: auto;
             position: relative;
             border-radius: 5px;
@@ -444,12 +449,12 @@ main{
                 overflow: hidden;
 
                 img{
-                    width: 100%; 
+                    width: 100%;
                     height: 100%;
                     max-height: 335px;
                     object-fit: contain;
                     object-position: top center;
-                }   
+                }
             }
 
             &__info{
@@ -527,7 +532,6 @@ main{
 
     .documents{
         width: 100%;
-        background: $lightgrey;
     }
 
     .document{
@@ -605,6 +609,13 @@ main{
         @include mobile{
             width: 100%;
         }
+
+        img{
+            object-fit: cover;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
     }
 
     .links{
@@ -620,7 +631,7 @@ main{
 
         &__link{
             width: 15%;
-            
+
             @include md{
                 width: 40%;
             }
@@ -639,7 +650,7 @@ main{
                     opacity: 1;
                 }
             }
-            
+
         }
     }
 
@@ -817,6 +828,52 @@ main{
                 opacity: 1;
             }
 
+        }
+    }
+
+    .resources{
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .resource {
+
+        display: block;
+        width: 23%;
+        height: auto;
+        text-align: center;
+        transition: .2s;
+
+        @include md{
+            width: 49%;
+            margin-bottom: 1.6em;
+        }
+
+        img{
+            width: 100%;
+            max-width: 290px;
+            transition: .1s;
+            margin-bottom: .7em;
+        }
+
+        p{
+            width: 90%;
+            margin: auto;
+            color: $grey;
+            font-size: 1.1rem;
+
+            @include mobile{
+                font-size: .9rem;
+            }
+        }
+
+
+        &:hover, &:active{
+
+            img{
+                transform: scale(1.05);
+            }
         }
     }
 
