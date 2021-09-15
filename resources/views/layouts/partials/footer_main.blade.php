@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="institution">
-            <div class="footer__logo"><img src="assets/front/img/logo-mono.png" alt=""></div>
+            <div class="footer__logo"><img src={{asset('assets/front/img/logo-mono.png')}} alt=""></div>
             <div class="copyright">
                 <p>&copy; 2021  ГБУ ДПО Институт развития образования Чеченской Республики.</p>
                 <p>Все права защищены. При использовании материалов сайта активная ссылка на сайт https://www.govzalla.ru обязательна.</p>
@@ -77,6 +77,22 @@
             });
         }
 
+        {
+            let slider = document.querySelector('.links');
+            let links = document.querySelectorAll('.links__link');
+            let prevButton = document.querySelector('.links_section__controller--left');
+            let nextButton = document.querySelector('.links_section__controller--right');
+
+            createSlider({
+                slider: slider,
+                slides: links,
+                prevButton: prevButton,
+                nextButton: nextButton,
+                slidesNumberPerPage: 4,
+                margin: '2em',
+                autoscroll: true
+            });
+        }
 
         let cshButtons = document.querySelectorAll('button.csh');
         let cards = document.querySelectorAll('.cards');

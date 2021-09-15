@@ -18,9 +18,27 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(10);
-        return view('admin.posts.index',compact('posts'));
+//        $posts = Post::where('category_id','1')->orWhere('category_id','2')->orWhere('category_id','4')->orWhere('category_id','5')->orWhere('category_id','6')->orWhere('category_id','18')->orderBy('created_at', 'desc')->paginate(15);
+//        $categories = DB::select('SELECT * FROM categories');
+//        return view('admin.posts.news.index',compact('posts','categories'));
+        $posts = Post::where('type_id','1')->orderBy('created_at', 'desc')->paginate(20);
+        $categories = DB::select('SELECT * FROM categories');
+        return view('admin.posts.news.index',compact('posts','categories'));
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function top()
+    {
+        $posts = Post::where('category_id','6')->orderBy('created_at', 'desc')->paginate(15);
+        $categories = DB::select('SELECT * FROM categories');
+        return view('admin.posts.news.index',compact('posts','categories'));
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -29,14 +47,10 @@ class PostController extends Controller
      */
     public function create()
     {
-
         $categories = Category::all();
         $types = DB::select('SELECT * FROM material_type');
-
-
-
-
-        return view('admin.posts.create',compact('categories','types'));
+        $departments = DB::select('SELECT * FROM departments');
+        return view('admin.posts.news.create',compact('categories','types','departments'));
     }
 
     /**
@@ -54,7 +68,7 @@ class PostController extends Controller
             'content' => 'required',
             'thumbnail' => 'nullable|image|mimes:jpg,bmp,png'
         ]);
-        //Сохраняем
+
         $data = $request->all();
 
         //загрузка изображения
@@ -72,9 +86,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $categories = Category::pluck('title','id')->all();
         $post = Post::find($id);
-        return view('admin.posts.edit', compact('categories','post'));
+        $categories = DB::select('SELECT * FROM categories');
+        $departments = DB::select('SELECT * FROM departments');
+        $post->date_val = $post['created_at'];
+        return view('admin.posts.news.edit', compact('categories','post','departments'));
     }
 
     /**
@@ -98,10 +114,16 @@ class PostController extends Controller
         if($file = Post::imageUpload($request, $post->thumbnamil) ){
             $data['thumbnail'] = $file;
         }
-
         $post->update($data);
-
-        return redirect()->route('posts.index')->with('success','Изменения сохранены');
+        //TODO  переместить
+        $redirectArray = [
+            1 => 'posts',
+            2 => 'document',
+            3 => 'video',
+            4 => 'review',
+            5 => 'link',
+        ];
+        return redirect()->route($redirectArray[$post->type_id].'.index')->with('success','Изменения сохранены');
     }
 
     /**
@@ -113,8 +135,30 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        //TODO  переместить
+        $redirectArray = [
+            1 => 'posts',
+            2 => 'document',
+            3 => 'video',
+            4 => 'review',
+            5 => 'link',
+        ];
+        $pageInd = $post->type_id;
         Storage::delete($post->thumbnail);
         $post->delete();
-        return redirect()->route('posts.index')->with('success',' Статья удалена');
+        return redirect()->route($redirectArray[$pageInd].'.index')->with('success',' Материал удален');
+    }
+
+    /**
+     * @param $cat
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function filterCategory(Request $request)
+    {
+        print_r($request->cat);
+        exit;
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+        $categories = DB::select("SELECT * FROM categories WHERE category_id = $cat");
+        return view('admin.posts.news.index',compact('posts','categories'));
     }
 }

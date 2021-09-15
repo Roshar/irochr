@@ -3,6 +3,8 @@ function createSlider (options) {
     let slides = options.slides;
     let margin = options.margin;
 
+    let autoscrollTimetId;
+
     let prevButton = options.prevButton;
     let nextButton = options.nextButton;
 
@@ -11,18 +13,20 @@ function createSlider (options) {
     let position = 1;
     let direction;
 
+    let autoscroll = options.autoscroll ?? false;
+
     let sliderSize = Math.ceil(slides.length / slidesNumberPerPage);
     let sliderWidth = sliderSize * 100;
     slider.style.width = sliderWidth + '%';
     slides.forEach(slide => {slide.style.width = sliderWidth});
 
-        
+
     let mediaQueryMD = window.matchMedia('(max-width: 933px)');
     function handleTabletChange(event) {
         if (event.matches) {
             sliderSize = slides.length;
             slider.style.width = slides.length + '00%';
-    
+
             slides.forEach(slide => {
                 slide.style.width = '100%';
             });
@@ -31,12 +35,11 @@ function createSlider (options) {
             slider.style.width = sliderWidth + '%';
             slides.forEach(slide => {
                 slide.style.width = `calc(${100/slidesNumberPerPage/sliderSize}% - ${margin})`;
-            }); 
+            });
         }
     }
     mediaQueryMD.addListener(handleTabletChange);
     handleTabletChange(mediaQueryMD);
-
 
 
     function toRight() {
@@ -48,9 +51,10 @@ function createSlider (options) {
         slider.style.transform = `translateX(-${position*100/sliderSize}%)`;
         position++;
         direction = 'right';
+        clearInterval(autoscrollTimetId);
     }
 
-    function toLeft() { 
+    function toLeft() {
         if(direction === 'right'){position--}
         if(position < 1){
             position = sliderSize;
@@ -59,8 +63,12 @@ function createSlider (options) {
         slider.style.transform = `translateX(-${(position-1)*(100/sliderSize)}%`;
         position--;
         direction = 'left';
+        clearInterval(autoscrollTimetId);
     }
 
+    if(autoscroll){
+        autoscrollTimetId = setInterval(toRight, 4000);
+    }
 
     nextButton.addEventListener('click', event => {toRight() })
     document.addEventListener('keyup', event => {

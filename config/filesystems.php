@@ -54,8 +54,8 @@ return [
 
         'testDisk' => [
             'driver' => 'local',
-            'root' => public_path('public/ckfinder/userfiles'),
-            'url' => '/public/ckfinder/userfiles',
+            'root' => public_path('/public/ckfinder/userfiles'),
+            'url' => 'https://govzalla.ru/public/public/ckfinder/userfiles',
             'visibility' => 'public',
         ],
 

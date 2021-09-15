@@ -41,16 +41,20 @@ main{
     }
 
     h2{
-        margin-bottom: 1.8em;
+        margin-bottom: 1.5em;
         font-size: 1.6rem;
 
         @include md{
             font-size: 1.3rem;
         }
+
+        @include mobile{
+            margin-bottom: 1em;
+        }
     }
 
     .news{
-    
+
         width: 90%;
         /* max-width: 835px; */
         margin-right: 6em;
@@ -64,7 +68,7 @@ main{
         @include large{
             margin-right: 4.5em;
         }
-        
+
         &__block{
             @include flex(space-between, flex-start);
             font-family: 'Open Sans', sans-serif;
@@ -91,8 +95,7 @@ main{
 
         img{
             display: block;
-            min-width: 40%;
-            height: 250px;
+            width: 40%;
             margin-right: 2em;
             border-radius: 4px;
             object-fit: contain;
@@ -105,7 +108,7 @@ main{
 
             @include mobile{
                 width: 100%;
-                height: 300px;
+                height: auto;
                 margin: 0 auto 1.5em;
             }
         }
@@ -172,7 +175,7 @@ main{
         }
 
         .event{
-        
+
             &__block{
                 @include flex(space-between, center);
                 font-family: 'Open Sans', sans-serif;
@@ -289,7 +292,7 @@ main{
             max-width: 500px;
             height: 280px;
             border: 1px solid $blue-m;
-            
+
             @include md{
                 margin-right: 0;
             }
@@ -319,7 +322,7 @@ main{
         &__heading{
 
             margin-bottom: 1.3em;
-            
+
             &::after{
                 content: '';
                 display: block;
@@ -400,7 +403,7 @@ main{
             a{
                 color: $gold;
                 transition: .3s;
-                
+
                 &:hover, &:active{
                     color: $blue-m;
                 }
@@ -521,14 +524,14 @@ main{
     }
 
     .center{
-        
+
         &_wrapper{
             padding: 3em 4em;
 
             @include mobile{
                 padding: 3em 1em;
             }
-        
+
             &--cmi{
                 background: url(../../img/centers/cito.jpg) no-repeat center/cover;
             }
@@ -550,7 +553,7 @@ main{
             }
 
             &__heading{
-            
+
                 &::after {
                     content: '';
                     display: block;
@@ -625,15 +628,12 @@ main{
                 position: relative;
                 transition: .4s;
                 padding-right: 1.1em;
-                /* display: flex;
-                align-items: flex-start; */
-                
+                cursor: pointer;
+
                 button{
                     position: absolute;
                     right: 0;
-                    cursor: pointer;
-                    /* top: .2em; */
-                    
+
                     i{
                         color: $blue-m;
                     }
@@ -683,12 +683,12 @@ main{
                     flex-shrink: 0;
                 }
 
-                line-height: 150%; 
-    
+                line-height: 150%;
+
                 &--blue{
                     color: $blue-m;
                 }
-    
+
                 &--gold{
                     color: $gold;
                 }
@@ -710,6 +710,7 @@ main{
         &__list{
             transition: .3s ease;
             padding-bottom: 1.8em;
+            /*border-bottom: 3px solid $blue-m;*/
 
             a{
                 color: $blue-m;
@@ -727,7 +728,7 @@ main{
                 overflow: hidden;
             }
         }
-        
+
     }
 }
 
@@ -757,10 +758,6 @@ main{
         }
     }
 
-    .bold{
-        font-weight: bold;
-    }
-
     &__about{
         color: $blue-m;
         font-size: 1.4rem;
@@ -781,7 +778,7 @@ main{
             font-weight: normal;
         }
     }
-    
+
     p{
         margin-bottom: 1.5em;
 
@@ -798,7 +795,7 @@ main{
         @include flex(flex-start, baseline);
         margin-bottom: .5em;
 
-        
+
         &:not(.document)::before{
             content: '';
             display: block;
@@ -817,30 +814,49 @@ main{
         margin-bottom: 1em;
     }
 
-    .documents{
+    .with_icon_list{
+        margin: 1em;
+        margin-bottom: 2em;
+        font-size: 1.1rem;
 
-        h2{
-            color: $blue-m;
+        li{
+            display: flex;
+            margin-bottom: 1.5em;
+
+            a{
+                color: #285299;
+                margin-bottom: 1em;
+                @include flex(space-between, center);
+                gap: 1em;
+
+                &:hover, &:active{
+                    p{
+                        color: $gold;
+                    }
+                }
+            }
+
+            p{
+                margin-bottom: 0;
+            }
+
+            i{
+                font-size: 3rem;
+            }
         }
 
-        &__list{
+        @include mobile{
+            font-size: .9rem;
 
-            .document{
-                display: flex;
+            li {
+                margin-bottom: .5em;
 
                 a{
-                    @include flex(space-between, baseline);
-                    gap: 1em;
-
-                    &:hover, &:active{
-                        p{
-                            color: $gold;
-                        }
-                    }
+                    align-items: flex-start;
                 }
 
                 i{
-                    font-size: 3rem;
+                    font-size: 1.8rem;
                 }
             }
         }
@@ -877,7 +893,7 @@ main{
 }
 
 table{
-    
+
     width: 100%;
 
     @include md{
@@ -894,7 +910,7 @@ table{
         &:not(.tr--head){
             &:nth-child(even){
                 background: #DDD;
-            } 
+            }
         }
     }
 
@@ -906,7 +922,7 @@ table{
             display: none;
         } */
     }
-    
+
     td, th{
         padding: .8em;
         /* border: 1px solid #DDD; */

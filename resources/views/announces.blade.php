@@ -3,25 +3,6 @@
 @section('title',$category->title)
 
 @section('content')
-    <style>
-        .pagination {
-            display: inline-block;
-        }
-
-        .pagination a {
-            color: black;
-            float: left;
-            padding: 8px 16px;
-            text-decoration: none;
-        }
-
-        .pagination a.active {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .pagination a:hover:not(.active) {background-color: #ddd;}
-    </style>
 
     <div class="container container--with_aside">
         <nav class="breadcrumbs_nav">
@@ -47,17 +28,6 @@
                                 </div>
                             </div>
                         @endforeach
-{{--                        @foreach($posts as $post)--}}
-{{--                            <div class="news__block">--}}
-{{--                                <img src="{{$post->getImage()}}" alt="" class="news__image">--}}
-{{--                                <div class="news__info">--}}
-{{--                                    <h3 class="news__heading"><a href="{{route('article',['slug' => $post->slug])}}">{{$post->title}}</a></h3>--}}
-{{--                                    <p class="news__text">{!!$post->description!!}</p>--}}
-{{--                                    <a href="{{route('article',['slug' => $post->slug])}}" class="news__details">подробнее</a>--}}
-{{--                                    <p class="news__date">{{$post->getPostDate()}}</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        @endforeach--}}
                     </div>
                     {{ $posts->links('pagination::semantic-ui') }}
 
@@ -67,10 +37,10 @@
             </main>
             <aside class="sidebar">
                 <div class="popular_news">
-                    <h2>{{$category->title}}</h2>
+                    <h2>Последние новости</h2>
                     @foreach($posts as $item)
                         <div class="popular_news__block">
-                            <a href=""><h3 class="popular_news__heading">{{$item->title}}</h3></a>
+                            <a href="{{route('article',['slug' => $item->slug])}}"><h3 class="popular_news__heading">{{$item->title}}</h3></a>
                         </div>
                     @endforeach
                 </div>

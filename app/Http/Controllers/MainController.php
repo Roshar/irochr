@@ -7,19 +7,20 @@ use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
+use App\Helpers\RFa;
 
 class MainController extends Controller
 {
     public function index()
     {
         //Все новости
-       $posts = Post::with('category')->where('category_id', '1')->orderBy('id', 'desc')->paginate(3);
+       $posts = Post::with('category')->where('category_id', '1')->orWhere('category_id', '4')->orderBy('created_at', 'desc')->paginate(3);
 
        //Главная новость
-       $mainArticle = Post::with('category')->where('category_id', '6')->get();
+       $mainArticle = Post::with('category')->where('category_id', '6')->orderBy('id', 'desc')->paginate(1);
 
        //Анонсы
-       $announces = Post::with('category')->where('category_id','5')->get();
+       $announces = Post::with('category')->where('category_id','5')->orderBy('id', 'desc')->paginate(3);
 
        //Актуальное видео
        $mainMovie = Post::where('category_id', '7')->latest()->get();
@@ -32,6 +33,10 @@ class MainController extends Controller
 //        var_dump($videoList);
 //        exit;
 
+        //Видеотека
+        //$videoList1 = Post::where('category_id','11')->latest()->paginate(6);
+
+
         $reviews = Post::with('category')->where('category_id', '16')->orderBy('id', 'desc')->paginate(6);
 
         return view('index', compact('posts','mainArticle','announces','mainMovie','documents','videoList','reviews'));
@@ -42,7 +47,9 @@ class MainController extends Controller
         $post = Post::where('slug', $slug)->firstOrFail();
         $post->views += 1;
         $post->update();
-        return view('show',compact('post'));
+        $category = Category::where('slug', 'novosti')->firstOrFail();
+        $last_news = $category->post()->orderBy('id', 'desc')->paginate(3);
+        return view('show',compact('post','last_news'));
     }
 
     public function mainArticle()
@@ -53,7 +60,7 @@ class MainController extends Controller
 //        return view('index', compact('posts'));
     }
 
-
+//TODO замена
     public function videoList()
     {
         $part = 'snippet';
@@ -74,8 +81,6 @@ class MainController extends Controller
     public function watch($id)
     {
         $singleVideo = $this->_singleVideo($id);
-
-
     }
 
     protected function _singleVideo($id)
@@ -89,7 +94,15 @@ class MainController extends Controller
         return $results;
     }
 
+    public function youtubeListMain()
+    {
+
+    }
+
 }
+
+
+
 
 
 
