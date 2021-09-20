@@ -4,8 +4,8 @@
             <div class="footer__block footer__block--contacts">
                 <h3 class="footer__heading">Контакты</h3>
                 <p>ГБУ ДПО "ИРО ЧР"</p>
-                <p>364031, Чеченская Республика</p>
-                <p><i class="fas fa-map-marker-alt"></i>г. Грозный, ул. им. Жуковского, д. 10В. </p>
+                <p>366007, Чеченская Республика</p>
+                <p><i class="fas fa-map-marker-alt"></i>г. Грозный, ул. Лермонтова, 2 </p>
                 <p><i class="fas fa-phone-alt"></i>тел/факс +7 (8712) 21-22-24</p>
                 <p><i class="fas fa-envelope"></i>E-mail: ipkro-chr@mail.ru</p>
                 <p><i class="fas fa-envelope"></i>Техподдержка: support@govzalla.ru</p>
@@ -19,8 +19,7 @@
                     <a href="https://vk.com/chipkro.official/"><i class="fab fa-vk"></i></a>
                 </div>
                 <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1451.1557982884488!2d45.714425555915135!3d43.328668331348894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4051d14388e57381%3A0x44959ec660c956b!2z0YPQuy4g0JbRg9C60L7QstGB0LrQvtCz0L4sIDEw0LIsINCT0YDQvtC30L3Ri9C5LCDQp9C10YfQtdC90YHQutCw0Y8g0KDQtdGB0L8uLCAzNjQwMzE!5e0!3m2!1sru!2sru!4v1598518335565!5m2!1sru!2sru" width="100%" height="auto" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2902.434937320095!2d45.6970150161983!3d43.326086981538005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4051d15e206fb90d%3A0x4ca6d6c1ff599f2a!2z0YPQuy4g0JvQtdGA0LzQvtC90YLQvtCy0LAsIDIsINCT0YDQvtC30L3Ri9C5LCDQp9C10YfQtdC90YHQutCw0Y8g0KDQtdGB0L8uLCAzNjQwNjg!5e0!3m2!1sru!2sru!4v1632127410857!5m2!1sru!2sru" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe>                </div>
             </div>
             <div class="footer__block footer__block--links">
                 <h3 class="footer__heading">Учредитель</h3>
