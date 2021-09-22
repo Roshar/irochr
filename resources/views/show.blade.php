@@ -19,9 +19,9 @@
                 <div class="post__header">
                     <p class="post__date">{{$post->getPostDate()}}</p>
                     <ul class="post__share_items">
-                        <li class="post__share_item"><a href="#"><i class="fab fa-vk"></i></a></li>
-                        <li class="post__share_item"><a href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer"><i class="fab fa-facebook-f"></i></a></li>
-                        <li class="post__share_item"><a href="#"><i class="fab fa-tumblr"></i></a></li>
+                        <li class="post__share_item"><a href="https://vk.com/chipkro.official"><i class="fab fa-vk"></i></a></li>
+                        <li class="post__share_item"><a href="https://www.facebook.com/chipkro.official/"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="post__share_item"><a href="https://www.instagram.com/gangaelmurzaeva/?hl=ru"><i class="fab fa-instagram"></i></a></li>
                     </ul>
                 </div>
                 <div class="post__info">

@@ -10,7 +10,7 @@
             <div class="center_block center_block--blue">
                 <h2 class="center_block__heading center_block__heading--blue"> Документы <button type="button" class="arrow_down"><i class="fas fa-arrow-circle-up"></i></button></h2>
                 <ul class="center__list">
-                    <li class="center_block__text"><a href="https://drive.google.com/file/d/12_5WZSTPXRjfPO51CEjGRo6dp_mXKoiC/view?usp=sharing">Приказ Министерства образования и науки ЧР №441-п  "Об утверждении базовых площадок и Центров по реализации мероприятий на развитие кадрового потенциала педагогов по вопросам изучения русского языка"</a></li>
+                    <li class="center_block__text"><a href="https://drive.google.com/file/d/12_5WZSTPXRjfPO51CEjGRo6dp_mXKoiC/view?usp=sharing">Приказ Министерства образования и науки ЧР №411-п  "Об утверждении базовых площадок и Центров по реализации мероприятий на развитие кадрового потенциала педагогов по вопросам изучения русского языка"</a></li>
                     <li class="center_block__text"><a href="https://drive.google.com/file/d/1Qt6T6pUDf4CMJgfAeDVWTliw_ZyIp-1H/view?usp=sharing">Приказ Министерства образования и науки ЧР №395-п "О реализации мероприятий на развитие кадрового потенциала педагогов по вопросам изучения русского языка"</a></li>
                     <li class="center_block__text"><a href="https://drive.google.com/drive/folders/1TBtfN6d0TTZ8BDmgb8oFUb4gy06MXcQx?usp=sharing">Программы </a></li>
                     <li class="center_block__text"><a href="https://drive.google.com/file/d/1hv5tcaCxe_pYOxE7HfzYLW8F0LXP7jUE/view?usp=sharing">Соглашение о сотрудничестве с Кабардино-Балкарской Республикой</a></li>

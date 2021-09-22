@@ -22,7 +22,7 @@ class InstituteController extends Controller
 
     public function document()
     {
-        $documents = DB::select('SELECT * FROM posts WHERE category_id = 3');
+        $documents = DB::select('SELECT * FROM posts WHERE category_id = 3 ORDER BY created_at DESC');
         $title="Документы";
         return view('institute.documents',compact('documents','title'));
     }

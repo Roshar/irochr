@@ -15,28 +15,29 @@
 {{--        </div>--}}
         <h2>Федеральный проект «Современная школа» направлен на обеспечение возможности детям получать качественное общее образование в условиях, отвечающих современным требованиям, независимо от места проживания ребенка, а также обеспечение возможности профессионального развития педагогических работников.</h2>
         <div class="center_wrapper">
-            <div class="center_block center_block--blue">
-                <h2 class="center_block__heading center_block__heading--blue"> Новостной раздел <button type="button" class="arrow_down"><i class="fas fa-arrow-circle-up"></i></button></h2>
-                <ul class="center__list">
-                    {{--                    @if(count($news))--}}
-                    {{--                        @foreach($news as $post)--}}
-                    {{--                            <li class="center_block__text"><a href="{{route('article',['slug' => $post->slug])}}">{{$post->title}}</a></li>--}}
-                    {{--                        @endforeach--}}
-                    {{--                    @else--}}
-                    {{--                        <li> нет записей</li>--}}
-                    {{--                    @endif--}}
-                </ul>
-            </div>
+
             <div class="center_block center_block--blue">
                 <h2 class="center_block__heading center_block__heading--blue"> Документы <button type="button" class="arrow_down"><i class="fas fa-arrow-circle-up"></i></button></h2>
                 <ul class="center__list">
-                    {{--                    @if(count($news))--}}
-                    {{--                        @foreach($news as $post)--}}
-                    {{--                            <li class="center_block__text"><a href="{{route('article',['slug' => $post->slug])}}">{{$post->title}}</a></li>--}}
-                    {{--                        @endforeach--}}
-                    {{--                    @else--}}
-                    {{--                        <li> нет записей</li>--}}
-                    {{--                    @endif--}}
+                    @foreach($documents as $doc)
+                        <li class="center_block__text">
+                            <a href="{!!doc_trim($doc->content)!!}" target="_blank">
+                                {{$doc->title}}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="center_block center_block--blue">
+                <h2 class="center_block__heading center_block__heading--blue"> Новостной раздел <button type="button" class="arrow_down"><i class="fas fa-arrow-circle-up"></i></button></h2>
+                <ul class="center__list">
+                                        @if(count($posts))
+                                            @foreach($posts as $post)
+                                                <li class="center_block__text"><a href="{{route('article',['slug' => $post->slug])}}">{{$post->title}}</a></li>
+                                            @endforeach
+                                        @else
+                                            <li> нет записей</li>
+                                        @endif
                 </ul>
             </div>
         </div>
