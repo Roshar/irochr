@@ -11,7 +11,7 @@ class Post extends Model
 {
     use Sluggable;
 
-    protected $fillable = ['title','description','content','category_id','type_id','thumbnail'];
+    protected $fillable = ['title','description','content','category_id','type_id','department_relation','thumbnail','created_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

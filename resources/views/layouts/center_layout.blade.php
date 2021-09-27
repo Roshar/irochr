@@ -18,14 +18,14 @@
                     <li class="sidebar_menu__item sidebar_menu__item--parent sidebar_menu__item">
                         <a href="centers.html">Центры</a>
                         <button type="button"><i class="fas fa-caret-down"></i></button>
-                        <ul class="sidebar_submenu">
+                        <ul class="sidebar_submenu sidebar_submenu--active">
                             <li class="sidebar_submenu__item"><a href="{{route('center.ric')}}">Редакционно-издательский центр</a></li>
                             <li class="sidebar_submenu__item"><a href="{{route('center.cito')}}">Центр информационно-технического обеспечения</a></li>
                             <li class="sidebar_submenu__item"><a href="{{route('center.cgia')}}">Центр по сопровождению ГИА</a></li>
                             <li class="sidebar_submenu__item"><a href="{{route('center.cio')}}">Центр инклюзивного образования</a></li>
 
                             <li class="sidebar_submenu__item"><a href="{{route('center.cmi')}}">Центр математики и информатики</a></li>
-                            <li class="sidebar_submenu__item"><a href="{{route('center.ced')}}">Центр ественнонаучных дисциплин </a></li>
+                            <li class="sidebar_submenu__item"><a href="{{route('center.ced')}}">Центр естественнонаучных дисциплин </a></li>
                             <li class="sidebar_submenu__item"><a href="{{route('center.cod')}}">Центр общественно-научных дисциплин</a></li>
                             <li class="sidebar_submenu__item"><a href="{{route('center.cm')}}">Центр менеджмента в системе общего и профессионального образования</a></li>
 

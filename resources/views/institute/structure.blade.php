@@ -34,33 +34,21 @@
                         </tr>
                         <tr>
                             <td>Исламова Малика Исаевна</td>
-                            <td>Первый проректор</td>
+                            <td>Проректор по проектной и инновационной деятельности</td>
                             <td>+7 (928) 745-91-16</td>
                             <td>malika_islamova@inbox.ru</td>
                         </tr>
                         <tr>
-                            <td>Эльмурзаева Румиса Абуязитовна</td>
+                            <td>Ялакаева Индира Анатольевна</td>
                             <td>Проректор по НМР</td>
-                            <td>+7 (928) 475-82-54</td>
-                            <td>rumisaelmurzaeva@mail.ru</td>
+                            <td>+7 (963) 594-44-64</td>
+                            <td>ya-indi@mail.ru</td>
                         </tr>
                         <tr>
-                            <td>Успаева Галина Вахиевна</td>
-                            <td>Проректор по управлению проектами</td>
-                            <td>+7 (928) 021-88-13</td>
-                            <td>sara01@yandex.ru</td>
-                        </tr>
-                        <tr>
-                            <td>Анзорова Айшат Умаровна</td>
+                            <td>Хатаева Ровзан Салимсултановна</td>
                             <td>Проректор по УМР</td>
-                            <td>+7 (989) 926-92-79	</td>
-                            <td>anzorova.85@mail.ru</td>
-                        </tr>
-                        <tr>
-                            <td>Чимаев Саид-Селим Ярагиевич</td>
-                            <td>Проректор по АХЧ</td>
-                            <td>+7 (906) 025-77-77</td>
-                            <td>amin_2004@mail.ru</td>
+                            <td>+7 (928) 477-22-20</td>
+                            <td>roza.khataeva@mail.ru</td>
                         </tr>
                         <tr>
                             <td>Дурдиева Жамиля Ахмедовна</td>
@@ -75,10 +63,10 @@
                             <th class="th--al" colspan="4">Центр филологического образования</th>
                         </tr>
                         <tr>
-                            <td>Этиева Имана Эдуевна</td>
+                            <td>Вараева Яха Эльбековна</td>
                             <td>Старший преподаватель</td>
-                            <td>+7 (928) 735-97-17</td>
-                            <td>imana.etieva@bk.ru</td>
+                            <td>+7 (966) 724-41-23</td>
+                            <td>varaeva62@mail.ru</td>
                         </tr>
                         <tr class="tr--head">
                             <th class="th--al" colspan="4">Центр математики и информатики</th>
@@ -103,7 +91,7 @@
                         </tr>
                         <tr>
                             <td>Даудова Лайла Идрисовна</td>
-                            <td>Старший преподаватель</td>
+                            <td>Заведующий центром</td>
                             <td>+7 (929) 890-47-90</td>
                             <td>layla.daudova.80@mail.ru</td>
                         </tr>
@@ -111,10 +99,10 @@
                             <th class="th--al" colspan="4">Центр общественно-научных дисциплин</th>
                         </tr>
                         <tr>
-                            <td>Горчханова Елизавета Султановна</td>
+                            <td>Магомадов Висхан Шамсудинович</td>
                             <td>Старший преподаватель</td>
-                            <td>+7 (928)786-70-09</td>
-                            <td>egorchhanova@mail.ru</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr class="tr--head">
                             <th class="th--al" colspan="4">Центр воспитания и психолого-педагогического сопровождения образовательной деятельности</th>
@@ -130,18 +118,9 @@
                         </tr>
                         <tr>
                             <td>Муцаев Иса Рамазанович</td>
-                            <td>Руководитель центра</td>
+                            <td>Старший преподаватель</td>
                             <td>+7 (928) 531-32-37</td>
                             <td>kuochipkro@mail.ru</td>
-                        </tr>
-                        <tr class="tr--head">
-                            <th class="th--al" colspan="4">Центр ОБЖ и физической культуры</th>
-                        </tr>
-                        <tr>
-                            <td>Хамзатов Джунид Саламувич</td>
-                            <td>Старший преподаватель</td>
-                            <td>+7 (963) 596-24-46 </td>
-                            <td></td>
                         </tr>
                         <tr class="tr--head">
                             <th class="th--al" colspan="4">Центр ОБЖ и физической культуры</th>
@@ -166,7 +145,7 @@
                         </tr>
                         <tr>
                             <td>Батукаев Рашид Эдуардович</td>
-                            <td>заведующий</td>
+                            <td>Заведующий центром</td>
                             <td>+7 (999) 144-07-88</td>
                             <td>rashid.batukaev@gmail.com <br>webrush@mail.ru</td>
                         </tr>
@@ -175,7 +154,7 @@
                         </tr>
                         <tr>
                             <td>Успаева Галина Вахиевна</td>
-                            <td>старший преподаватель центра</td>
+                            <td>Старший преподаватель</td>
                             <td>+7 (928) 021-88-13</td>
                             <td>sara01@yandex.ru</td>
                         </tr>
@@ -183,28 +162,10 @@
                             <th class="th--al" colspan="4">Центр инклюзивного образования</th>
                         </tr>
                         <tr>
-                            <td>Теучеж Нуриет Юнусовна</td>
-                            <td>старший преподаватель центра</td>
-                            <td>+7(964) 060-74-13</td>
-                            <td>nuretnuret27@mail.ru</td>
-                        </tr>
-                        <tr class="tr--head">
-                            <th class="th--al" colspan="4">Центр сопровождения проектов (программ) в сфере образования</th>
-                        </tr>
-                        <tr>
-                            <td>Салатаева Разет Салмановна</td>
-                            <td>заведующий</td>
-                            <td>+7(928) 736-47-09</td>
-                            <td>razet1955@mail.ru</td>
-                        </tr>
-                        <tr class="tr--head">
-                            <th class="th--al" colspan="4">Центр сопровождения проектов (программ) в сфере образования</th>
-                        </tr>
-                        <tr>
-                            <td>Лабазанов Муса</td>
-                            <td>заведующий</td>
-                            <td>+7(928) 953-89-48</td>
-                            <td>allegro2011@mail.ru</td>
+                            <td>Ахмадов Муса Махмудович</td>
+                            <td>Старший преподаватель</td>
+                            <td>+7 (928) 290-45-16</td>
+                            <td>musa.cdo@mail.ru</td>
                         </tr>
                         <tr class="tr--head">
                             <th class="structure__th" colspan="4">Отделы</th>
@@ -228,21 +189,12 @@
                             <td>mochigova55@mail.ru</td>
                         </tr>
                         <tr class="tr--head">
-                            <th class="th--al" colspan="4">Канцелярия</th>
+                            <th class="th--al" colspan="4">Административно-хозяйственый отдел</th>
                         </tr>
                         <tr>
                             <td>Газиев Эмир Бекханович</td>
                             <td>Руководитель канцелярии</td>
                             <td>+7(928) 738-47-79</td>
-                            <td>mochigova55@mail.ru</td>
-                        </tr>
-                        <tr class="tr--head">
-                            <th class="th--al" colspan="4">Хозяйственно-бытовой отдел</th>
-                        </tr>
-                        <tr>
-                            <td>Чимаев Саид-Селим Ярагиевич	</td>
-                            <td>Начальник отдела</td>
-                            <td></td>
                             <td></td>
                         </tr>
                     </table>
@@ -253,9 +205,10 @@
 {{--                <h2 class="info__heading">Общее собрание работников</h2>--}}
 {{--                <a href=""></a>--}}
 {{--            </div>--}}
-            <h1> Документы </h1>
-            <div class="info documents regulations">
-                <ul class="documents__list">
+            <div class="info__block">
+                <h2 class="info__heading">Документы</h2>
+                <div class="info documents regulations">
+                <ul class="documents__list with_icon_list">
                     @foreach($documents as $doc)
                         <li class="document">
                             <a href="{!!doc_trim($doc->content)!!}" target="_blank">
@@ -265,6 +218,7 @@
                         </li>
                     @endforeach
                 </ul>
+            </div>
             </div>
         </div>
         <button class="scroll_to_top_button--hidden"><i class="fas fa-chevron-up"></i></button>

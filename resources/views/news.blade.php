@@ -3,25 +3,6 @@
 @section('title',$category->title)
 
 @section('content')
-    <style>
-        .pagination {
-            display: inline-block;
-        }
-
-        .pagination a {
-            color: black;
-            float: left;
-            padding: 8px 16px;
-            text-decoration: none;
-        }
-
-        .pagination a.active {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .pagination a:hover:not(.active) {background-color: #ddd;}
-    </style>
 
     <div class="container container--with_aside">
         <nav class="breadcrumbs_nav">
@@ -48,11 +29,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <!-- <div class="pagination">
-                        <a href="#">&laquo;</a>
-                        <a href="#"> </a>
-                        <a href="#">&raquo;</a>
-                    </div> -->
+
                     {{ $posts->links('pagination::semantic-ui') }}
 
                     {{--                <button class="more_news_button" id="add_more"></button>--}}
@@ -64,15 +41,9 @@
                     <h2>{{$category_a->title}}</h2>
                     @foreach($announce as $item)
                     <div class="popular_news__block">
-                        <a href=""><h3 class="popular_news__heading">{{$item->title}}</h3></a>
+                        <a href="{{route('article',['slug' => $item->slug])}}"><h3 class="popular_news__heading">{{Fariza::short_title($item->title)}}</h3></a>
                     </div>
                     @endforeach
-{{--                    <div class="popular_news__block">--}}
-{{--                        <a href=""><h3 class="popular_news__heading">Ежегодный конкурс <br>«Лучший учитель чеченского языка»</h3></a>--}}
-{{--                    </div>--}}
-{{--                    <div class="popular_news__block">--}}
-{{--                        <a href=""><h3 class="popular_news__heading">Ежегодный конкурс <br>«Лучший учитель чеченского языка»</h3></a>--}}
-{{--                    </div>--}}
                 </div>
             </aside>
         </div>

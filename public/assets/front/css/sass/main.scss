@@ -1,8 +1,4 @@
-/* font-family: 'Alegreya', serif;
-font-family: 'Istok Web', sans-serif;
-font-family: 'Open Sans', sans-serif; */
-@import '../../../../../../../../../../Users/rashid/Downloads/chipkro-main 3/css/sass/variables';
-
+@import './variables';
 
 body{
     font-family: 'Istok Web', sans-serif;
@@ -71,7 +67,7 @@ main{
             position: absolute;
             right: 0;
             bottom: 35%;
-            width: 440px;
+            width: 40%;
             background: rgba($color: #FFF, $alpha: .7);
             padding: 1.5em 1.3em;
             font-size: 1.7rem;
@@ -94,6 +90,10 @@ main{
                 bottom: 45%;
             }
 
+            @include large{
+                font-size: 1.3rem;
+            }
+
             @include md{
                 top: 0;
                 bottom: 50%;
@@ -107,9 +107,7 @@ main{
             }
 
             @include mobile{
-                font-size: 1.1rem;
-                bottom: 70%;
-                height: 40%;
+                font-size: .9rem;
             }
 
         }
@@ -227,7 +225,7 @@ main{
         }
 
         &__block{
-            @include flex(space-between, center);
+            @include flex(space-between, flex-start);
             font-family: 'Open Sans', sans-serif;
             margin-bottom: 1em;
             /* line-height: 131%; */
@@ -246,21 +244,21 @@ main{
             width: 50%;
             height: 330px;
             box-shadow: 2px 3px 7px 0 rgba($color: #000, $alpha: .4),
-                        -35px 32px 0px rgba($color: #4D59A0, $alpha: .5);
+            -35px 32px 0px rgba($color: #4D59A0, $alpha: .5);
             margin-right: 2em;
             border-radius: 4px;
             object-fit: cover;
 
             @include large{
                 width: 250px;
-               /*  margin-bottom: 2.5em; */
+                /*  margin-bottom: 2.5em; */
             }
 
             @include md{
                 width: 100%;
                 margin-bottom: 2.5em;
                 box-shadow: 2px 3px 7px 0 rgba($color: #000, $alpha: .4),
-                        -15px 15px 0px rgba($color: #4D59A0, $alpha: .5);
+                -15px 15px 0px rgba($color: #4D59A0, $alpha: .5);
             }
         }
 
@@ -307,11 +305,11 @@ main{
     .actual_video{
 
         /* @include large{ */
-            width: 30%;
+        width: 30%;
         /* } */
 
         @include md{
-           width: 100%;
+            width: 100%;
         }
 
         &__block{
@@ -323,6 +321,11 @@ main{
                 width: 100%;
                 margin: auto;
                 margin-bottom:4em;
+            }
+
+            iframe{
+                max-width: 100%;
+                width: 100% !important;
             }
         }
 
@@ -348,7 +351,7 @@ main{
                 cursor: pointer;
             }
 
-             @include md{
+            @include md{
                 width: 100%;
             }
         }
@@ -413,8 +416,17 @@ main{
             .card{
                 min-height: 610px;
             }
+        }
 
-
+        &[data-name='news']{
+            .card {
+                &__image_block{
+                    img{
+                        height: 335px;
+                        object-fit: cover;
+                    }
+                }
+            }
         }
 
         .card{
@@ -542,7 +554,7 @@ main{
         background: #FFF;
         color: $blue-m;
         width: calc(100%/3);
-        height: 125px;
+        height: 140px;
         border: .2px solid #FFF;
         transition: .3s;
 
@@ -566,7 +578,7 @@ main{
         }
 
         @include md{
-            font-size: .9rem;
+            font-size: .85rem;
             padding: 1em;
         }
 
@@ -618,37 +630,64 @@ main{
         }
     }
 
-    .links{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        align-items: center;
-        justify-content: space-around;
+    .links_section{
 
-        @include mobile{
-            flex-direction: column;
+        &__wrapper{
+            position: relative;
         }
 
+        &__controller{
+            position: absolute;
+            top: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            padding: .45em;
+            border: 2px solid #FFF;
+            color: $blue-m;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1.5rem;
+            transition: .3s;
+            background: transparent;
+
+            &--left{
+                left: -35px;
+
+                &:hover, &:active{
+                    transform: translateX(-8px);
+                }
+            }
+
+            &--right{
+                right: -35px;
+
+                &:hover, &:active{
+                    transform: translateX(8px);
+                }
+            }
+        }
+    }
+
+    .links_wrapper{
+        overflow: hidden;
+    }
+
+    .links{
+        display: flex;
+        position: relative;
+        transition: 1s;
+
         &__link{
-            width: 15%;
-
-            @include md{
-                width: 40%;
-            }
-
-            @include mobile{
-                width: 60%;
-            }
+            display: block;
+            margin: 0 1em;
+            text-align: center;
 
             img{
-                width: 100%;
-                height: 100%;
+                max-width: 100%;
+                height: 80px;
                 transition: .3s;
-                opacity: .3;
-
-                &:hover{
-                    opacity: 1;
-                }
+                object-fit: contain;
             }
 
         }
@@ -788,7 +827,14 @@ main{
         &__text{
             color: $grey;
             line-height: 130%;
-            text-align: justify;
+        }
+
+        p:not(.testimonial__name){
+            margin-bottom: .8em;
+
+            @include mobile{
+                margin-bottom: .55em;
+            }
         }
     }
 
@@ -821,13 +867,7 @@ main{
         img{
             width: 80%;
             max-width: 150px;
-            opacity: .3;
             transition: .3s;
-
-            &:hover{
-                opacity: 1;
-            }
-
         }
     }
 
@@ -876,7 +916,6 @@ main{
             }
         }
     }
-
 }
 
 .to_all_link{
@@ -909,8 +948,4 @@ main{
     &--disable{
         display: none;
     }
-
-    /* @include md{
-        margin-bottom: 4em;
-    } */
 }

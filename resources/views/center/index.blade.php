@@ -39,7 +39,7 @@
             </div>
             <div class="center">
                 <a href="{{route('center.ced')}}" class="center__wrapper">
-                    <h2 class="center__heading">Центр ественнонаучных дисциплин</h2>
+                    <h2 class="center__heading">Центр естественнонаучных дисциплин</h2>
                     <div class="center__details">Подробнее</div>
                 </a>
             </div>

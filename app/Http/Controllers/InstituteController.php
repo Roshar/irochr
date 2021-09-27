@@ -22,7 +22,7 @@ class InstituteController extends Controller
 
     public function document()
     {
-        $documents = DB::select('SELECT * FROM posts WHERE category_id = 3');
+        $documents = DB::select('SELECT * FROM posts WHERE category_id = 3 ORDER BY created_at DESC');
         $title="Документы";
         return view('institute.documents',compact('documents','title'));
     }
@@ -68,7 +68,7 @@ class InstituteController extends Controller
 
     public function financial_and_economic_activities()
     {
-        $documents = DB::select('SELECT * FROM posts WHERE category_id = 10');
+        $documents = DB::select('SELECT * FROM posts WHERE category_id = 10 ORDER BY category_id DESC ');
         $title="ФИНАНСОВО-ХОЗЯЙСТВЕННАЯ ДЕЯТЕЛЬНОСТЬ";
         return view('institute.financial_and_economic_activities',compact('documents','title'));
     }
@@ -83,6 +83,20 @@ class InstituteController extends Controller
     {
         $title="ПЛАТНЫЕ ОБРАЗОВАТЕЛЬНЫЕ УСЛУГИ";
         return view('institute.paid_educational_services',compact('title'));
+    }
+
+    //Ученый совет
+    public function academic_council()
+    {
+        $documents = DB::select('SELECT * FROM posts WHERE category_id = 34');
+        $title="Ученый совет";
+        return view('institute.academic_council',compact('documents','title'));
+    }
+
+    public function trade_union()
+    {
+        $title="Профсоюзная страничка";
+        return view('institute.trade_union',compact('title'));
     }
 
 }

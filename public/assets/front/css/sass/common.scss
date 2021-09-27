@@ -4,14 +4,27 @@ button{
     cursor: pointer;
 }
 
+/* на время размещения уведомления */
+
+body{
+
+    padding-top: 2em;
+
+    @include md{
+        padding-top: 4em;
+    }
+}
+
 header{
-    padding: 1.7em 0; 
+    padding: 1.7em 0;
     position: relative;
 
     @include md{padding: 4.7em 0 0;}
 
     .logo{
-        
+
+        text-align: center;
+
         @include md{
             height: 50px;
             margin-bottom: 1.5em;
@@ -22,17 +35,49 @@ header{
 
         img{
             height: 115px;
+            margin-bottom: 0.5em;
 
             @include md{
                 height: 50px;
+                margin-bottom: 0;
+            }
+        }
+
+        &__text{
+            /*margin-left: 2em;*/
+            color: $blue-m;
+            font-weight: bold;
+            text-align: center;
+            padding-top: 0.5em;
+            border-top: 2px solid #285299;
+            font-size: 0.8rem;
+
+            @include md{
+                display: none;
+            }
+        }
+
+        @media (max-width: 1093px){
+            display: block;
+            text-align: center;
+
+            .logo__text{
+                text-align: center;
+                margin-left: 0;
+                padding-top: .5em;
+                border-top: 2px solid $blue-m;
+            }
+
+            img{
+                margin-bottom: .5em;
             }
         }
     }
 
     .main_nav{
 
-        font-size: 1.3em;
-        width: 70%;
+        font-size: 1.2em;
+        width: auto;
         padding: 2em;
         text-align: right;
         position: relative;
@@ -40,15 +85,18 @@ header{
         border-bottom: 4px solid $blue-m;
         transition: .4s;
 
-        @media (max-width: 1100px){
-            width: auto;
+        @media (max-width: 1140px){
+            font-size: 1rem;
+        }
+
+        @media (max-width: 1010px){
+            font-size: .9rem;
         }
 
         @include md{
             width: 100%;
             text-align: center;
             padding: .3em;
-            font-size: 1rem;
             max-height: 0;
             overflow: hidden;
             margin: 0;
@@ -56,7 +104,7 @@ header{
             flex-direction: column;
         }
 
-        &--active {   
+        &--active {
             height: auto;
             max-height: 400px;
             padding: 0.3em 0 0;
@@ -99,7 +147,7 @@ header{
                 &:hover, &:active{
                     .main_nav_submenu{
                         height: auto;
-                        max-height: 540px;
+                        max-height: 715px;
                     }
 
                     @include md{
@@ -107,6 +155,7 @@ header{
                         border-bottom: none;
 
                         .main_nav_submenu{
+                            text-align: center;
                             position: static;
                             margin-top: .5em;
                         }
@@ -118,7 +167,7 @@ header{
         .search{
             z-index: 100;
             position: relative;
-            width: 50px;
+            width: 35px;
             cursor: pointer;
 
             &:hover, &:active{
@@ -137,19 +186,28 @@ header{
 
             &__field{
                 position: absolute;
-                width: 600px;
-                display: inline-block; 
+                width: 760px;
+                display: inline-block;
                 border: 1px solid $blue-m;
                 border-radius: 50px;
                 padding: .6em .9em;
                 transition: .4s;
                 top: -10px;
-                right: 48px;
+                right: 25px;
                 font-size: 1.1rem;
                 opacity: 0;
                 z-index: -1;
-                pointer-events: none;  
+                pointer-events: none;
                 color: $blue-m;
+
+                @media (max-width: 1140px){
+                    width: 635px;
+                    top: -13px;
+                }
+
+                @media (max-width: 1010px){
+                    width: 570px;
+                }
 
                 @include md{
                     width: 100%;
@@ -181,7 +239,7 @@ header{
                 color: $blue-m;
             }
         }
-        
+
         &_submenu{
             position: absolute;
             max-height: 0;
@@ -237,7 +295,7 @@ header{
         @include md{
             display: block;
         }
-        
+
         span,
         span::before,
         span::after {
@@ -248,26 +306,26 @@ header{
             height: 2px;
             background-color: $blue-m;
         }
-        
+
         span::before,
         span::after {
             content: '';
             display: block;
             transition: .2s;
         }
-        
+
         span::before {
             transform: translateY(-5px);
         }
-        
+
         span::after {
             transform: translateY(5px);
         }
-      
+
         &--active {
 
             span{height: 0}
-                
+
             span:before {
                 transform: rotate(45deg);
             }
@@ -297,6 +355,10 @@ header{
     }
 
     &--header{
+        @include large{
+            padding: 0 2.5em;
+        }
+
         @include md{
             padding: 0;
         }
@@ -324,7 +386,7 @@ header{
         }
 
         &__item{
-        
+
             display: inline-block;
             &:not(:last-child){
                 &::after{
@@ -365,6 +427,10 @@ header{
             flex-direction: column;
 
             aside, main.with_aside{width: 100%;}
+
+            aside{
+                margin-bottom: 1.5em;
+            }
         }
     }
 
@@ -396,6 +462,10 @@ header{
     text-transform: uppercase;
 }
 
+.bold{
+    font-weight: bold;
+}
+
 a{
     color: $grey;
 
@@ -411,7 +481,7 @@ aside{
     min-width: 280px;
 
     @include md{
-        padding: 2em 0;
+        /*padding: 2em 0;*/
         width: 100%;
     }
 
@@ -458,11 +528,13 @@ aside{
             color: #FFF;
             padding: 2em 1em;
             font-weight: normal;
-            font-size: 1.2rem;
+            font-size: 1rem;
             vertical-align: middle;
             display: flex;
             align-items: center;
             transition: .3s;
+            overflow: hidden;
+
 
             @include large{
                 font-size: 1rem;
@@ -470,19 +542,22 @@ aside{
             }
         }
     }
-    
+
     .sidebar{
         overflow: hidden;
 
         &_menu{
-            /* padding: 1em .5em; */
-    
+
             &__item{
                 font-size: 1.2rem;
                 font-weight: 700;
                 margin-bottom: .8em;
+
+                @include mobile{
+                    font-size: 1rem;
+                }
             }
-    
+
             &::after{
                 content: '';
                 display: block;
@@ -491,11 +566,11 @@ aside{
                 background: $gold;
                 margin-top: 1em;
             }
-    
+
             a, button{
                 color: $grey;
                 transition: .2s;
-    
+
                 &:hover, &:active{
                     color: $gold;
                 }
@@ -511,7 +586,7 @@ aside{
                 overflow: hidden;
             }
         }
-    
+
         &_submenu{
             font-size: 1rem;
             font-weight: normal;
@@ -520,15 +595,15 @@ aside{
             transition: .3s;
 
             &--active{
-                max-height: 650px;
+                max-height: 678px;
                 padding: 1em .5em 0;
             }
-    
+
             &__item{
                 margin-bottom: .8em;
                 font-size: .95rem;
             }
-        } 
+        }
     }
 }
 
@@ -561,7 +636,7 @@ aside{
         width: 30%;
 
         i{
-            margin-right: .4em; 
+            margin-right: .4em;
             font-size: 1.2rem;
             vertical-align: middle;
         }
@@ -612,7 +687,7 @@ aside{
                 color: #CCC;
             }
         }
-        
+
         i{
             font-size: 1.7rem;
         }
@@ -631,13 +706,13 @@ aside{
         margin: 5em auto 0;
         width: 75%;
         border-top: 1px solid #C4C4C4;
-        padding: 2em 4em;  
+        padding: 2em 4em;
         @include flex(space-between, center);
 
         @include large{
             width: 90%;
         }
-        
+
         @include md{
             flex-direction: column;
             padding: 1.5em;
@@ -645,7 +720,7 @@ aside{
             margin: 1.5em auto 0;
         }
 
-        @include mobile{ 
+        @include mobile{
             padding: .5em
         }
     }
@@ -653,7 +728,7 @@ aside{
     &__logo {
 
         margin-right: 4em;
-    
+
         img{
             height: 100px;
         }
